@@ -1,20 +1,18 @@
 import React from 'react';
-<<<<<<< HEAD
-import './App.css';
-=======
+import CardsContainer from './components/CardsContainer'
+import NavContainer from './components/Nav'
+import CarouselContainer from './components/CarouselContainer'
 
 import './styles/css/App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
->>>>>>> 2c6ddf910b9149fc6630a725caa0c13aba896660
+import './styles/scss/custom.scss'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
-      <h1>Hello world</h1>
-=======
-      
->>>>>>> 2c6ddf910b9149fc6630a725caa0c13aba896660
+      <NavContainer />
+      <CarouselContainer />
+      <CardsContainer/>
     </div>
   );
 }
