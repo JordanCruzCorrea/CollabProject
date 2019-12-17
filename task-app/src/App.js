@@ -1,7 +1,6 @@
 import React from 'react';
-import CardsContainer from './components/CardsContainer'
+import Home from './components/Home'
 import NavContainer from './components/Nav'
-import CarouselContainer from './components/CarouselContainer'
 
 import './styles/css/App.css';
 import './styles/scss/custom.scss'
@@ -11,8 +10,7 @@ function App() {
   return (
     <div className="App">
       <NavContainer />
-      <CarouselContainer />
-      <CardsContainer/>
+      <Home />
     </div>
   );
 }

@@ -2,6 +2,28 @@
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-.Navigation{
+.navigation{
+    display: flex;
     background-color: #6c87b9;
 }
+
+.carousel {
+border: 3px solid red;
+display: block;
+// height: 10em;
+color: black;
+}
+
+// .active {
+    // color:black
+// }
+// .carousel-caption {
+    // color: black;
+    // bottom: -12em;
+// }
+
+
+// .carousel-control-prev-icon{
+//     border: 3px solid red;
+   
+// }

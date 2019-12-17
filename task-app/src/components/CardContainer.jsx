@@ -33,7 +33,7 @@ const CardContainer = () => {
           <div>
             <h2 className='food-name'>Chicken Parmesan</h2>
             <p>With al dente penna pasta in a spicy marinara sauce topped with fresh basil</p>
-            <span className='serving'>Servings:</span>                   <Button size="sm" id='remove-button'>-</Button>
+            <span className='serving'>Servings:</span>             <Button size="sm" id='remove-button'>-</Button>
             <span className='serving-size'>1</span>                <Button size="sm" id='add-button'>+</Button>
           </div>
           <div></div>
