@@ -54,7 +54,8 @@ export default class Home extends Component {
               <Image
                 fluid
                 src="holder.js/3100x144?bg=eeeeee&fg=eeeeee"
-                alt=""
+                alt="holder-carousel"
+                id="holder-carousel"
               />
               <Carousel.Caption>
                 <h3>Week of {recipe.week}</h3>
@@ -121,15 +122,16 @@ export default class Home extends Component {
                     margin: "5px"
                   }}
                 >
-                  <Card.Img
+                  <Image
                     variant="top"
                     style={{ width: "45%" }}
                     src={recipe.image}
                   />
                   <Card.Body>
-                    <Card.Title>Total Time: {recipe.totalTime} minutes</Card.Title>
+                    <Card.Title>Total Time:</Card.Title>
+                    <Card.Subtitle>{recipe.totalTime} minutes</Card.Subtitle>
                     <Card.Text>
-                      <ul>
+                      <ul className="p-1">
                         <li>Prep Time: {recipe.prepTime} Minutes</li>
                         <li>Cook Time: {recipe.cookTime} Minutes</li>
                         <li>Clean Up Time: {recipe.cleanTime} Minutes</li>
