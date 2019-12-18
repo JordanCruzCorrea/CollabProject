@@ -6,7 +6,8 @@ import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
+import { TiCancel } from 'react-icons/ti'
+import { GiAlliedStar } from 'react-icons/gi'
 import "holderjs";
 
 import { recipes } from "../data/recipes";
@@ -65,10 +66,10 @@ export default class Home extends Component {
         <Container>
           <Row>
             {weeksRecipes.map((recipe, index) => (
-              <Col key={index} lg={6}>
+              <Col key={index} lg={6} className='recipe-container'>
                 {/* <div>{recipe.label}</div>
                 <Image fluid src={recipe.image} alt="" /> */}
-
+                <Row>
                 <Card
                   style={{
                     display: "flex",
@@ -95,9 +96,37 @@ export default class Home extends Component {
                     </Card.Text>
                   </Card.Body>
                 </Card>
+              
+              </Row>
+              <Row>
+              <Col key={index} lg={6}>
+              <div>
+  <h2 className='food-name'>{recipe.label}</h2>
+                <p>{recipe.description}</p>
+                <span className='serving'>Servings:</span>             <Button size="sm" id='remove-button'>-</Button>
+                <span className='serving-size'>{recipe.yield}</span>                <Button size="sm" id='add-button'>+</Button>
+              </div>
+              <div></div>
+            </Col>
+            <Col style={{margin:'5px'}}>
+              <div className='category-container'>
+            <div>
+              <TiCancel color='gray'></TiCancel>
+              <span className='category'>No Prep Meal</span>
+            </div>
+              
+            <div>
+              <GiAlliedStar color='gray'></GiAlliedStar>
+              <span className='category'>Team Favorite</span>
+            </div>
+            </div>
+              <Button id='add-cart'>Add To Cart</Button>
+            </Col>
+              </Row>
               </Col>
             ))}
           </Row>
+          
         </Container>
       </>
     );
