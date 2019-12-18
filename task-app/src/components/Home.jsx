@@ -46,7 +46,11 @@ export default class Home extends Component {
         >
           {allRecipes.map((recipe, index) => (
             <Carousel.Item key={index}>
-              <Image fluid src="holder.js/3100x144?bg=eeeeee&fg=eeeeee" alt="" />
+              <Image
+                fluid
+                src="holder.js/3100x144?bg=eeeeee&fg=eeeeee"
+                alt=""
+              />
               <Carousel.Caption>
                 <h3>Week of {recipe.week}</h3>
                 <p>
@@ -62,8 +66,35 @@ export default class Home extends Component {
           <Row>
             {weeksRecipes.map((recipe, index) => (
               <Col key={index} lg={6}>
-                <div>{recipe.label}</div>
-                <Image fluid src={recipe.image} alt="" />
+                {/* <div>{recipe.label}</div>
+                <Image fluid src={recipe.image} alt="" /> */}
+
+                <Card
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    background: "#f5efde",
+                    width: "fit-content",
+                    margin: "5px"
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    style={{ width: "45%" }}
+                    src={recipe.image}
+                  />
+                  <Card.Body>
+                    <Card.Title>Total Time: {recipe.totalTime} minutes</Card.Title>
+                    <Card.Text>
+                      <ul>
+                        <li>Prep Time: {recipe.prepTime} Minutes</li>
+                        <li>Cook Time: {recipe.cookTime} Minutes</li>
+                        <li>Clean Up Time: {recipe.cleanTime} Minutes</li>
+                      </ul>
+                      <p>{Math.floor(recipe.calories)} Calories</p>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
               </Col>
             ))}
           </Row>
