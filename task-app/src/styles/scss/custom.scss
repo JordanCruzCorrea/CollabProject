@@ -77,6 +77,18 @@ div .logos{
 // bottom: -12em;
 // }
 
-// .carousel-control-prev-icon{
+.carousel-control-prev-icon{
 //  border: 3px solid red;
-// }
+ background-color: gray;
+ border-radius: 30px;
+ padding: 1em;
+ margin: .5em;
+}
+
+.carousel-control-next-icon{
+//  border: 3px solid red;
+background-color: gray;
+border-radius: 30px;
+padding: 1em;
+margin: 2em;
+}

@@ -7,6 +7,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_c64bbbcafa1c486c95d94dc1a99b14f9",
         label: "Vegetarian Stir-Fried Garlic Scape",
+        description: 'They are the stalks that grow from garlic bulbs. They have nice crunch to them.',
         image:
           "https://www.edamam.com/web-img/33e/33e894ef1df09575df1f8fdb348d6d9a.png",
         source: "Red Cook",
@@ -689,6 +690,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_e2cbaaf0f6b3aaea8d90dcb4c673c50d",
         label: "Grilled Pork Loin",
+        description: 'For a simply delicious meal, rub a tenderloin with pepper, salt and then grill.',
         image:
           "https://www.edamam.com/web-img/1b2/1b24f1f5169ed00f9e75114aa84a8868.jpg",
         source: "The Kitchn",
@@ -1325,6 +1327,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_0ccc7e81c8377e661266b3ac48c30486",
         label: "Dijon Chicken",
+        description: 'This chicken dish is extremely fast and economical. It makes a nice sauce that works well over brown rice or wide noodles',
         image:
           "https://www.edamam.com/web-img/448/448099f608ac1c4975d20867334da8ec.jpg",
         source: "Simply Recipes",
@@ -1998,6 +2001,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_333e271a3dc26d367d4f6c1776cd0b13",
         label: "Barbecued Beef Brisket",
+        description: "This Barbecued Beef Brisket is so smokey and flavorful no one will ever guess it wasn't cooked on the grill! ",
         image:
           "https://www.edamam.com/web-img/b64/b64005809d54d818e6ded326347b07c8.jpg",
         source: "Saveur",
@@ -2634,6 +2638,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_d5c793abd58a4a788d31c30deeeda44c",
         label: "Vegetarian Cassoulet",
+        description: 'This Vegetarian Cassoulet Recipe is one of the best vegetarian comfort food recipes ever!',
         image:
           "https://www.edamam.com/web-img/a31/a31e34980c125d62647227b394c6d326.jpg",
         source: "Smitten Kitchen",
@@ -3322,6 +3327,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_17b514c50a6dd4fc9f2d99a45a645c14",
         label: "Cool And Spicy Fish And Cucumber Salad",
+        description: 'This simple recipe uses only a few ingredients but packs a serious flavour punch!',
         image:
           "https://www.edamam.com/web-img/136/1362cc0f20b9c105716a58984a17f816.jpg",
         source: "The Kitchn",
@@ -3996,6 +4002,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_a25ab6e41f439e4cc0721f3f34780da9",
         label: "Chicken Quinoa",
+        description: 'This is incredibly easy, delicious and spicy! Taste-test approved by a very picky 3-year-old',
         image:
           "https://www.edamam.com/web-img/560/5606f4fb972e0789464fecdc9ca595aa.JPG",
         source: "Food52",
@@ -4647,6 +4654,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_89f0821227fd12abbbee648358661834",
         label: "Beef Tenderloin",
+        description: 'A meal featuring beef tenderloin is a delicious indulgence during this celebratory holiday season.',
         image:
           "https://www.edamam.com/web-img/8eb/8eb5ba79991fbec8e35f46dd0613405b.jpg",
         source: "Martha Stewart",
@@ -5275,6 +5283,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_86db0249fba46b6027b0b6bab4ee654c",
         label: "Vegetarian Ramen",
+        description: 'This vegetarian ramen is quick, easy and fresh, made with vegetable broth and aromatics like ginger and garlic.',
         image:
           "https://www.edamam.com/web-img/10a/10ae90f8732d66d2800239111401544f.JPG",
         source: "Food52",
@@ -6003,6 +6012,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_5ea0f86e0edf09d90eaa200bb502427e",
         label: "Sticky pork",
+        description: "For a mouth-watering starter, you can't go past sticky pork. Best of all it only takes 30 minutes to make!",
         image:
           "https://www.edamam.com/web-img/cea/cea74e3d36923760ab9cab530e5f033b.jpg",
         source: "BBC Good Food",
@@ -6649,6 +6659,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_690c3797b4f56fc1e119c14096d651c5",
         label: "Roast Chicken",
+        description: "Intimidated by a whole chicken? Don't be! It's surprisingly easy to make, and there's nothing better than roast chicken leftovers.",
         image:
           "https://www.edamam.com/web-img/25f/25feccd2eed4722604be4a9ffa1ac768.jpg",
         source: "San Francisco Gate",
@@ -7292,6 +7303,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_883c03348f20c504f604cc4f5260ae55",
         label: "Easy Sautéed Fish Fillets",
+        description: "Here's a basic fried fish recipe for use with fillets of tilapia, haddock, roughy, or similar types of fish, featuring a simple seasoned flour coating",
         image:
           "https://www.edamam.com/web-img/5e8/5e86367b3d64dc7c222285ce9b233e93.jpg",
         source: "EatingWell",
@@ -7341,6 +7353,9 @@ export const recipes = [
         calories: 708.2750918666667,
         totalWeight: 511.92915398916597,
         totalTime: 30,
+        prepTime: 10,
+        cookTime: 10,
+        cleanTime: 5,
         totalNutrients: {
           ENERC_KCAL: {
             label: "Energy",
@@ -7937,6 +7952,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_7de41dbd5e926f4bdcb5f83e3516c70e",
         label: "Vegetarian Burger with Avocado Salsa",
+        description: "A very easy vegan burger done in under 30 minutes. Very easy to do, yummy and a perfect summer dish.",
         image:
           "https://www.edamam.com/web-img/5e3/5e33d48226926ea28da64bb4ed927382.jpg",
         source: "Delish",
@@ -8611,6 +8627,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_537aa1763eeccc06934ad6cb352a9061",
         label: "Double-Pork Carnitas",
+        description: "Celebrate the beauty of slow-cooked, crispy-edged, meltingly rich carnitas.",
         image:
           "https://www.edamam.com/web-img/402/402c9eaeaa486495af64e4b9e0912ede.jpg",
         source: "Epicurious",
@@ -9260,6 +9277,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_06da4c0d8b1cabca809b4a9a6ad1e5ef",
         label: "Baked Gefilte Fish",
+        description: "Baked gefilte fish is served hot or cold and often is a main course.",
         image:
           "https://www.edamam.com/web-img/30b/30bc8ba581e8df430cff2a22c5e32abf.jpg",
         source: "Epicurious",
@@ -9953,6 +9971,7 @@ export const recipes = [
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_321f22ade4bdf65d6166eca828bb53fc",
         label: "Beef Tacos",
+        description: "An easy dinner recipe that the whole family will enjoy, even your pickiest eaters!",
         image:
           "https://www.edamam.com/web-img/219/219b9268b0f84eecf0cab133498b7ef3.jpg",
         source: "No Recipes",

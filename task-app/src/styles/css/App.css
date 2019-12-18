@@ -3,6 +3,8 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+    border-right: 1px solid black;
+
 }
 
 .category {
@@ -16,6 +18,14 @@
 .card {
   box-shadow: 0px 2px 10px gray;
 }
+
+.recipe-container {
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: .5em;
+}
+
+
 /* div .container {  
 margin-left: 0px;
 width: fit-content;
