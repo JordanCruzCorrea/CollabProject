@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-import "holderjs";
+// import "holderjs";
 
 import { recipes } from "../data/recipes";
 
