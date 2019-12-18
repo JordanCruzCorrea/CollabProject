@@ -3,7 +3,7 @@ $main-color: #6c87b9;
 
 @import "~bootstrap/scss/bootstrap.scss";
 
-.carousel-indicators {
+.carousel-control-next {
   background-color: #eeeeee;
 }
 
@@ -13,6 +13,16 @@ $main-color: #6c87b9;
 
 .navigation {
   background-color: $main-color;
+}
+
+.search-btn {
+  background-color: $main-color;
+  color: white;
+}
+
+#filter-dropdown {
+  background-color: $main-color;
+  border: 0;
 }
 
 // .carousel {
