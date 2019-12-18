@@ -45,6 +45,23 @@ $main-color: #6c87b9;
   }
 }
 
+div .logos{
+  border: 2px solid yellow;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-toggler{
+  background-color: blue;
+}
+
+.navbar{
+  flex-direction: row-reverse;
+  justify-content: flex start
+}
+
+// @media screen and (min-width: 375px) 
+
 // .carousel {
 // border: 3px solid red;
 // display: block;

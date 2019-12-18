@@ -1,5 +1,6 @@
 import React from "react";
-import Col from "react-bootstrap/Col";
+// import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container'
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaHome, FaUserCircle } from "react-icons/fa";
@@ -8,31 +9,38 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 const NavContainer = () => {
   return (
     <Navbar collapseOnSelect variant="dark" style={{ backgroundColor: `#6c87b9` }} expand="md">
-      <Col
+      <Container>
+        <Navbar.Brand><FaHome /></Navbar.Brand>
+        <div className="justify-content-end mr-0">
+          <AiOutlineShoppingCart className="m-2"/>
+          <FaUserCircle className="m-2"/>
+        </div>
+      </Container>
+      {/* <Col
         xs={{ span: "auto", order: 1 }}
         md={{ span: 9 }}
         lg={{ span: 10 }}
         xl={{ span: 11, order: 2 }}
-      >
-        <Navbar.Toggle aria-controls="navbar" />
-        <Navbar.Collapse id="navbar">
-          <Nav>
-            <Nav.Item>
-              <Nav.Link href="/about">About</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/plans">Plans</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/meals">Meals</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/contact">Contact</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Col>
-      <Col
+      > */}
+      <Container><Navbar.Toggle aria-controls="navbar" />
+      <Navbar.Collapse id="navbar">
+        <Nav>
+          <Nav.Item>
+            <Nav.Link href="/about">About</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/plans">Plans</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/meals">Meals</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/contact">Contact</Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Navbar.Collapse></Container>
+      {/* </Col> */}
+      {/* <Col
         xs={{ span: "auto", order: 2 }}
         md={{}}
         lg={{ span: "auto" }}
@@ -49,7 +57,8 @@ const NavContainer = () => {
       >
         <AiOutlineShoppingCart />
         <FaUserCircle />
-      </Col>
+      </Col> */}
+
     </Navbar>
   );
 };
