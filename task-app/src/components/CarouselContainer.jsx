@@ -1,78 +1,96 @@
-import React from "react";
+import React, { Component } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-const CarouselContainer = () => {
-  return (
-    <div classname="Carousel">
-      {/* <Carousel>
-          <Carousel.Caption>
-            <h1>Weeks of Monday, December 23rd</h1>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-          <Carousel.Caption>
-            <h1>Week of Monday, December 30th</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-          <Carousel.Caption>
-            <h1>Week of Monday, January 6th</h1>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        
-      </Carousel> */}
+class CarouselContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      currentRecipes: [],
+      selectedWeek: ""
+    };
+  }
 
-<Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>Weeks of Monday, December 23rd</h3>
-      <p>Meals starting at $6.99 per perving. <span style={{color: 'red'}}>4 days</span> left to order from this menu.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
-      alt="Third slide"
-    />
+  componentDidMount() {
+    const { recipes } = this.props;
+    
+  }
 
-    <Carousel.Caption>
-      <h3>Week of Monday, December 30th</h3>
-      <p>Meals starting at $6.99 per perving. <span style={{color: 'red'}}>4 days</span> left to order from this menu.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
-      alt="Third slide"
-    />
+  render() {
+    // console.table(recipes[0].week);
+    // recipes.map(recipe => {
+    //   console.log(recipe.week)
+    // })
+    return (
+      <>
+        <Carousel interval={0}>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://source.unsplash.com/random/1440x144"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>Weeks of Monday, December 23rd</h3>
+              <p>
+                Meals starting at $6.99 per perving.{" "}
+                <span style={{ color: "red" }}>4 days</span> left to order from
+                this menu.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://source.unsplash.com/random/1440x144"
+              alt="Third slide"
+            />
 
-    <Carousel.Caption>
-      <h3>Week of Monday, January 6th</h3>
-      <p>Meals starting at $6.99 per perving. <span style={{color: 'red'}}>4 days</span> left to order from this menu.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
-      alt="Third slide"
-    />
+            <Carousel.Caption>
+              <h3>Week of Monday, December 30th</h3>
+              <p>
+                Meals starting at $6.99 per perving.{" "}
+                <span style={{ color: "red" }}>4 days</span> left to order from
+                this menu.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://source.unsplash.com/random/1440x144"
+              alt="Third slide"
+            />
 
-    <Carousel.Caption>
-      <h3>Week of Monday, January 13th</h3>
-      <p>Meals starting at $6.99 per perving. <span style={{color: 'red'}}>4 days</span> left to order from this menu.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
-    </div>
-  );
-};
+            <Carousel.Caption>
+              <h3>Week of Monday, January 6th</h3>
+              <p>
+                Meals starting at $6.99 per perving.{" "}
+                <span style={{ color: "red" }}>4 days</span> left to order from
+                this menu.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://source.unsplash.com/random/1440x144"
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Week of Monday, January 13th</h3>
+              <p>
+                Meals starting at $6.99 per perving.{" "}
+                <span style={{ color: "red" }}>4 days</span> left to order from
+                this menu.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </>
+    );
+  }
+}
 
 export default CarouselContainer;

@@ -1,29 +1,35 @@
 // Override defaults
+$main-color: #6c87b9;
 
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 
-.navigation{
-    display: flex;
-    background-color: #6c87b9;
+.carousel-indicators {
+  background-color: #eeeeee;
 }
 
-.carousel {
-border: 3px solid red;
-display: block;
+.carousel-caption {
+  color: black;
+}
+
+.navigation {
+  background-color: $main-color;
+}
+
+// .carousel {
+// border: 3px solid red;
+// display: block;
 // height: 10em;
-color: black;
-}
+// color: black;
+// }
 
 // .active {
-    // color:black
+// color:black
 // }
 // .carousel-caption {
-    // color: black;
-    // bottom: -12em;
+// color: black;
+// bottom: -12em;
 // }
 
-
 // .carousel-control-prev-icon{
-//     border: 3px solid red;
-   
+//  border: 3px solid red;
 // }
