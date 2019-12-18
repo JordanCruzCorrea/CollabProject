@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav'
+import { NavLink } from 'react-router-dom'
 import { FaHome, FaUserCircle } from "react-icons/fa";
 import {  AiOutlineShoppingCart } from 'react-icons/ai';
 
