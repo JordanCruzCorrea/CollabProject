@@ -26,7 +26,7 @@ const CarouselContainer = () => {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
       alt="First slide"
     />
     <Carousel.Caption>
@@ -37,7 +37,7 @@ const CarouselContainer = () => {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
       alt="Third slide"
     />
 
@@ -49,7 +49,7 @@ const CarouselContainer = () => {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
       alt="Third slide"
     />
 
@@ -61,7 +61,7 @@ const CarouselContainer = () => {
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src="http://www.desktopwallpaperhd.net/wallpapers/11/8/wallpapers-filter-random-backgrounds-iamfreeman-fabric-room-black-high-113528.jpg"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
       alt="Third slide"
     />
 
