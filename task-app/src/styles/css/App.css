@@ -20,9 +20,18 @@
 }
 
 .recipe-container {
-  border-right: 1px solid lightgray;
+  border-right: .5px solid lightgray;
   border-bottom: 1px solid lightgray;
+  border-left: 1px solid lightgray;
   padding: .5em;
+}
+
+.recipes-container {
+  margin-top: 1em;
+}
+
+.bottom-row {
+  padding: 1em;
 }
 
 

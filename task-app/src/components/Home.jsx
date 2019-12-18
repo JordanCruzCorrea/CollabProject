@@ -63,7 +63,7 @@ export default class Home extends Component {
           ))}
         </Carousel>
 
-        <Container>
+        <Container className='recipes-container'>
           <Row>
             {weeksRecipes.map((recipe, index) => (
               <Col key={index} lg={6} className='recipe-container'>
@@ -98,7 +98,7 @@ export default class Home extends Component {
                 </Card>
               
               </Row>
-              <Row>
+              <Row className='bottom-row'>
               <Col key={index} lg={6}>
               <div>
   <h2 className='food-name'>{recipe.label}</h2>
