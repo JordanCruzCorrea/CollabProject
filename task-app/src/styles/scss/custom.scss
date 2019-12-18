@@ -3,7 +3,7 @@ $main-color: #6c87b9;
 
 @import "~bootstrap/scss/bootstrap.scss";
 
-.carousel-indicators {
+.carousel-control-next {
   background-color: #eeeeee;
 }
 
@@ -15,7 +15,35 @@ $main-color: #6c87b9;
   background-color: $main-color;
 }
 
+.search-btn {
+  background-color: $main-color;
+  color: white;
+}
 
+#filter-dropdown {
+  background-color: $main-color;
+  border: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .carousel-caption h3 {
+    font-size: 1em;
+    margin-bottom: 1.8em;
+  }
+
+  .carousel-inner {
+    height: 50px;
+  }
+
+  .carousel-caption span {
+    display: none;
+  }
+
+  .carousel-caption p {
+    // display: none;
+    color: #eeeeee;
+  }
+}
 
 div .logos{
   border: 2px solid yellow;
@@ -31,7 +59,6 @@ div .logos{
   flex-direction: row-reverse;
   justify-content: flex start
 }
-
 
 // @media screen and (min-width: 375px) 
 

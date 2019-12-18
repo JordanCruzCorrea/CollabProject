@@ -7,9 +7,14 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-// import "holderjs";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
+import "holderjs";
 
 import { recipes } from "../data/recipes";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default class Home extends Component {
   constructor() {
@@ -49,7 +54,8 @@ export default class Home extends Component {
               <Image
                 fluid
                 src="holder.js/3100x144?bg=eeeeee&fg=eeeeee"
-                alt=""
+                alt="holder-carousel"
+                id="holder-carousel"
               />
               <Carousel.Caption>
                 <h3>Week of {recipe.week}</h3>
@@ -61,6 +67,44 @@ export default class Home extends Component {
             </Carousel.Item>
           ))}
         </Carousel>
+
+        <Container fluid>
+          <Row>
+            <Col
+              xs={12}
+              md={{ span: 6, offset: 2 }}
+              lg={{ span: 4, offset: 3 }}
+              className="mt-3 mb-3"
+            >
+              <InputGroup>
+                <FormControl
+                  // placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                />
+                <InputGroup.Append>
+                  <Button variant="outline-secondary" className="search-btn">
+                    Search
+                  </Button>
+                </InputGroup.Append>
+              </InputGroup>
+            </Col>
+            <Col xs={12} md className="mt-3 mb-3">
+              <DropdownButton
+                alignRight
+                title="Filter Meals"
+                variant="primary"
+                id="filter-dropdown"
+                key="Primary"
+              >
+                <Dropdown.Item eventKey="1">Hey</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Hey</Dropdown.Item>
+                <Dropdown.Item eventKey="3">Hey</Dropdown.Item>
+                <Dropdown.Item eventKey="4">Hey</Dropdown.Item>
+              </DropdownButton>
+            </Col>
+          </Row>
+        </Container>
 
         <Container>
           <Row>
@@ -78,15 +122,16 @@ export default class Home extends Component {
                     margin: "5px"
                   }}
                 >
-                  <Card.Img
+                  <Image
                     variant="top"
                     style={{ width: "45%" }}
                     src={recipe.image}
                   />
                   <Card.Body>
-                    <Card.Title>Total Time: {recipe.totalTime} minutes</Card.Title>
+                    <Card.Title>Total Time:</Card.Title>
+                    <Card.Subtitle>{recipe.totalTime} minutes</Card.Subtitle>
                     <Card.Text>
-                      <ul>
+                      <ul className="p-1">
                         <li>Prep Time: {recipe.prepTime} Minutes</li>
                         <li>Cook Time: {recipe.cookTime} Minutes</li>
                         <li>Clean Up Time: {recipe.cleanTime} Minutes</li>
