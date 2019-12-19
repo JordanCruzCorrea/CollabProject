@@ -6,8 +6,8 @@ import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
-import { FaSearch, FaBalanceScale } from "react-icons/fa";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { FaSearch, FaBalanceScale, FaMinus, FaPlus } from "react-icons/fa";
 import { TiCancel } from "react-icons/ti";
 import { FiArrowDownCircle } from "react-icons/fi";
 import {
@@ -163,13 +163,13 @@ export default class Home extends Component {
                     <p>{recipe.description}</p>
                     <span className="serving">Servings:</span>{" "}
                     <Button size="sm" id="remove-button">
-                      -
+                      <AiOutlineMinusCircle size='30px'/>
                     </Button>
                     <span className="serving-size justify-content-end">
                       {recipe.yield}
                     </span>{" "}
                     <Button size="sm" id="add-button">
-                      +
+                      <AiOutlinePlusCircle size='30px'/>
                     </Button>
                   </Col>
                   <Col lg={5} className="justify-content-between">
