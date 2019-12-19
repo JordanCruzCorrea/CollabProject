@@ -1,28 +1,27 @@
 import React from "react";
-// import Col from "react-bootstrap/Col";
-import Container from 'react-bootstrap/Container'
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { FaHome, FaUserCircle } from "react-icons/fa";
+import Image from "react-bootstrap/Image";
+
+import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+
+import Logo from "../data/image16.png";
 
 const NavContainer = () => {
   return (
-    <Navbar collapseOnSelect variant="dark" style={{ backgroundColor: `#6c87b9` }} expand="md">
-      <Container>
-        <Navbar.Brand><FaHome /></Navbar.Brand>
-        <div className="justify-content-end mr-0">
-          <AiOutlineShoppingCart className="m-2"/>
-          <FaUserCircle className="m-2"/>
-        </div>
-      </Container>
-      {/* <Col
-        xs={{ span: "auto", order: 1 }}
-        md={{ span: 9 }}
-        lg={{ span: 10 }}
-        xl={{ span: 11, order: 2 }}
-      > */}
-      <Container><Navbar.Toggle aria-controls="navbar" />
+    <Navbar
+      collapseOnSelect
+      variant="dark"
+      style={{ backgroundColor: `#6c87b9` }}
+      expand="md"
+    >
+      <Navbar.Brand>
+        <Image src={Logo} />
+      </Navbar.Brand>
+      <AiOutlineShoppingCart className="nav-shop m-2" />
+      <FaUserCircle className="nav-profile m-2" />
+      <Navbar.Toggle />
       <Navbar.Collapse id="navbar">
         <Nav>
           <Nav.Item>
@@ -38,27 +37,7 @@ const NavContainer = () => {
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav.Item>
         </Nav>
-      </Navbar.Collapse></Container>
-      {/* </Col> */}
-      {/* <Col
-        xs={{ span: "auto", order: 2 }}
-        md={{}}
-        lg={{ span: "auto" }}
-        xl={{ span: "auto", order: 1 }}
-      >
-        <Navbar.Brand href="/home">
-          <FaHome />
-        </Navbar.Brand>
-      </Col>
-      <Col
-        xs={{ span: "auto", order: 3 }}
-        lg={{ span: 1, order: 3 }}
-        xl={{ span: "auto", order: 3 }}
-      >
-        <AiOutlineShoppingCart />
-        <FaUserCircle />
-      </Col> */}
-
+      </Navbar.Collapse>
     </Navbar>
   );
 };
