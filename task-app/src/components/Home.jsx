@@ -35,6 +35,7 @@ export default class Home extends Component {
     this.state = {
       allRecipes: [],
       index: 0,
+      servings: 1,
       direction: null
     };
   }
@@ -44,7 +45,8 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    this.setState({ allRecipes: recipes });
+    this.setState({ allRecipes: recipes })
+    // this.setState({ servings: recipes.yield });
   }
 
   render() {
@@ -149,7 +151,7 @@ export default class Home extends Component {
                                   Clean Up Time: {recipe.cleanTime} Minutes
                                 </li>
                               </ul>
-                              <p>{Math.floor(recipe.calories/recipe.yield)} Calories per serving</p>
+                              <p>{(Math.floor(recipe.calories/recipe.yield))*`${this.state.servings}`} Calories</p>
                             </span>
                           </Card.Body>
                         </Col>
@@ -162,13 +164,25 @@ export default class Home extends Component {
                     <h2 className="food-name">{recipe.label}</h2>
                     <p>{recipe.description}</p>
                     <span className="serving">Servings:</span>{" "}
-                    <Button size="sm" id="remove-button">
+                    <Button size="sm" id="remove-button" onClick={() => {this.setState((prevState) => {
+                      return {
+                        ...prevState,
+                        servings : prevState.servings - 1
+                      }
+                    })}
+                      }>
                       <AiOutlineMinusCircle size='30px'/>
                     </Button>
                     <span className="serving-size justify-content-end">
-                      {recipe.yield/recipe.yield}
+                      {this.state.servings}
                     </span>{" "}
-                    <Button size="sm" id="add-button">
+                    <Button size="sm" id="add-button" onClick={() => {this.setState((prevState) => {
+                      return {
+                        ...prevState,
+                        servings : prevState.servings + 1
+                      }
+                    })}
+                      }>
                       <AiOutlinePlusCircle size='30px'/>
                     </Button>
                   </Col>
