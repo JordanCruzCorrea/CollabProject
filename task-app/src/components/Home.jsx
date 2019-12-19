@@ -7,14 +7,16 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-<<<<<<< HEAD
-// import { TiCancel } from "react-icons/ti";
-// import { GiAlliedStar } from "react-icons/gi";
-=======
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBalanceScale } from "react-icons/fa";
 import { TiCancel } from "react-icons/ti";
-import { GiAlliedStar } from "react-icons/gi";
->>>>>>> d01ed4a15ac0a9613721c1e68a3aaca34a6a7285
+import { FiArrowDownCircle } from "react-icons/fi";
+import {
+  GiMeat,
+  GiMuscleFat,
+  GiFireFlower,
+  GiAlliedStar,
+  GiFruitTree
+} from "react-icons/gi"; //highprotein and lowfat icon
 
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -25,8 +27,7 @@ import "holderjs";
 import { recipes } from "../data/recipes";
 import Dropdown from "react-bootstrap/Dropdown";
 
-import { FaBalanceScale } from "react-icons/fa"; //balanced icon
-import { GiMeat, GiMuscleFat, GiFireFlower } from "react-icons/gi"; //highprotein and lowfat icon
+
 
 export default class Home extends Component {
   constructor() {
@@ -179,37 +180,59 @@ export default class Home extends Component {
                           case "Balanced":
                             return (
                               <div className="category-container">
-                                <FaBalanceScale size='40px'/>
+                                <FaBalanceScale size='30px' color='gray' color='gray'/>
                                 <h4>Balanced</h4>
                               </div>
                             );
                           case "High-Protein":
                             return (
                               <div className="category-container">
-                                <GiMeat size='40px'/>
+                                <GiMeat size='30px' color='gray'/>
                                 <h4>High-Protein</h4>
                               </div>
                             );
                           case "Low-Carb":
                             return (
                               <div className='category-container'>
-                                <GiFireFlower size='40px'/>
+                                <GiFireFlower size='30px' color='gray'/>
                                 <h4>Low-Carb</h4>
                               </div>
                             );
                           case "Low-Fat":
                             return (
                               <div className='category-container'>
-                                <GiMuscleFat size='40px'/>
+                                <GiMuscleFat size='30px' color='gray'/>
                                 <h4>Low-Fat</h4>
                               </div>
                             );
-                            case "None":
+                            case "No Prep Meal":
                               return(
                                 <div className='category-container'>
-                                  <h4>None</h4>
+                                  <TiCancel size='30px' color='gray'/>
+                                  <h4>No Prep Meal</h4>
                                 </div>
-                              )
+                              );
+                              case "Team Favorite":
+                            return (
+                              <div className="category-container">
+                                <GiAlliedStar size='30px' color='gray'/>
+                                <h4>Team Favorite</h4>
+                              </div>
+                            );
+                            case "Vegetarian":
+                            return (
+                              <div className="category-container">
+                                <GiFruitTree size='30px' color='gray'/>
+                                <h4>Vegetarian</h4>
+                              </div>
+                            );
+                            case "Low Calorie":
+                            return (
+                              <div className="category-container">
+                                <FiArrowDownCircle size='30px' color='gray'/>
+                                <h4>Low Calorie</h4>
+                              </div>
+                            );
                         }
                       })}
 
