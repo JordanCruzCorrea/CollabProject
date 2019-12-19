@@ -15,7 +15,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/vegetarian-stir-fried-garlic-scape-c64bbbcafa1c486c95d94dc1a99b14f9/vegetarian",
         yield: 4,
-        dietLabels: ["Balanced"],
+        dietLabels: ["Balanced", "Vegetarian"],
         healthLabels: ["Peanut-Free", "Tree-Nut-Free"],
         cautions: ["Gluten", "Wheat", "Sulfites"],
         ingredientLines: [
@@ -698,7 +698,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/grilled-pork-loin-e2cbaaf0f6b3aaea8d90dcb4c673c50d/pork",
         yield: 12,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -1335,7 +1335,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/dijon-chicken-0ccc7e81c8377e661266b3ac48c30486/chicken",
         yield: 3,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: ["Peanut-Free", "Tree-Nut-Free"],
         cautions: [],
         ingredientLines: [
@@ -2009,7 +2009,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/barbecued-beef-brisket-333e271a3dc26d367d4f6c1776cd0b13/beef",
         yield: 30,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -2646,7 +2646,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/vegetarian-cassoulet-d5c793abd58a4a788d31c30deeeda44c/vegetarian",
         yield: 4,
-        dietLabels: ["Balanced"],
+        dietLabels: ["Balanced", "Vegetarian"],
         healthLabels: ["Peanut-Free", "Tree-Nut-Free", "Alcohol-Free"],
         cautions: ["Sulfites", "FODMAP"],
         ingredientLines: [
@@ -4010,7 +4010,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/chicken-quinoa-a25ab6e41f439e4cc0721f3f34780da9/chicken",
         yield: 2,
-        dietLabels: [],
+        dietLabels: ["Team Favorite", "No Prep Meal"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -4662,7 +4662,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/beef-tenderloin-89f0821227fd12abbbee648358661834/beef",
         yield: 8,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -5291,7 +5291,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/vegetarian-ramen-86db0249fba46b6027b0b6bab4ee654c/vegetarian",
         yield: 4,
-        dietLabels: [],
+        dietLabels: ["Vegetarian", "No Prep Meal"],
         healthLabels: ["Tree-Nut-Free"],
         cautions: ["Gluten", "Wheat", "Sulfites", "FODMAP"],
         ingredientLines: [
@@ -6020,7 +6020,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/sticky-pork-5ea0f86e0edf09d90eaa200bb502427e/pork",
         yield: 4,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: ["Peanut-Free", "Tree-Nut-Free", "Alcohol-Free"],
         cautions: ["Sulfites"],
         ingredientLines: [
@@ -6668,7 +6668,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/roast-chicken-690c3797b4f56fc1e119c14096d651c5/chicken",
         yield: 10,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -7961,7 +7961,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/vegetarian-burger-with-avocado-salsa-7de41dbd5e926f4bdcb5f83e3516c70e/vegetarian",
         yield: 4,
-        dietLabels: ["Balanced"],
+        dietLabels: ["Balanced", "Vegetarian"],
         healthLabels: [
           "Sugar-Conscious",
           "Vegan",
@@ -8636,7 +8636,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/double-pork-carnitas-537aa1763eeccc06934ad6cb352a9061/pork",
         yield: 8,
-        dietLabels: ["Low-Carb"],
+        dietLabels: ["Low-Carb", "Team Favorite"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -9979,7 +9979,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/beef-tacos-321f22ade4bdf65d6166eca828bb53fc/beef",
         yield: 8,
-        dietLabels: [],
+        dietLabels: ["Team Favorite", "No Prep Meal"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
