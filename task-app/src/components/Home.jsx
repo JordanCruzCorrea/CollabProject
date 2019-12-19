@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-import { FaSearch, FaBalanceScale, FaMinus, FaPlus } from "react-icons/fa";
+import { FaSearch, FaBalanceScale } from "react-icons/fa";
 import { TiCancel } from "react-icons/ti";
 import { FiArrowDownCircle } from "react-icons/fi";
 import {
@@ -27,15 +27,14 @@ import "holderjs";
 import { recipes } from "../data/recipes";
 import Dropdown from "react-bootstrap/Dropdown";
 
-
-
 export default class Home extends Component {
   constructor() {
     super();
     this.state = {
       allRecipes: [],
       index: 0,
-      direction: null
+      direction: null,
+      weeksRecipes: [1, 1, 1, 1]
     };
   }
 
@@ -44,10 +43,18 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    this.setState({ allRecipes: recipes });
+    recipes.map(recipe => {
+      return this.setState(state => {
+        state.allRecipes.push({ recipe: recipe, serving: 1 });
+        return state;
+      });
+    });
+    // this.setState({ servings: recipes.yield });
+    console.log(this.state);
   }
 
   render() {
+    console.log(this);
     let { allRecipes, index } = this.state;
     let recipeIndex = recipes[index];
     let weeksRecipes = recipeIndex.recipes;
@@ -72,7 +79,7 @@ export default class Home extends Component {
                   id="holder-carousel"
                 />
                 <Carousel.Caption>
-                  <h3>Week of {recipe.week}</h3>
+                  <h3>Week of {recipe.recipe.week}</h3>
                   <p>
                     <span style={{ color: "red" }}>4 days</span> left to order
                     from this menu.
@@ -149,7 +156,11 @@ export default class Home extends Component {
                                   Clean Up Time: {recipe.cleanTime} Minutes
                                 </li>
                               </ul>
-                              <p>{Math.floor(recipe.calories/recipe.yield)} Calories per serving</p>
+                              <p>
+                                {Math.floor(recipe.calories / recipe.yield) *
+                                  `${this.state.weeksRecipes[index]}`}{" "}
+                                Calories
+                              </p>
                             </span>
                           </Card.Body>
                         </Col>
@@ -162,84 +173,107 @@ export default class Home extends Component {
                     <h2 className="food-name">{recipe.label}</h2>
                     <p>{recipe.description}</p>
                     <span className="serving">Servings:</span>{" "}
-                    <Button size="sm" id="remove-button">
-                      <AiOutlineMinusCircle size='30px'/>
+                    <Button
+                      size="sm"
+                      id="remove-button"
+                      onClick={() => {
+                        this.setState(state => {
+                          state.weeksRecipes[index] =
+                            state.weeksRecipes[index] - 1;
+                          return state;
+                        });
+                        console.log(this.state);
+                      }}
+                    >
+                      <AiOutlineMinusCircle size="30px" />
                     </Button>
                     <span className="serving-size justify-content-end">
-                      {recipe.yield/recipe.yield}
+                      {this.state.weeksRecipes[index]}
                     </span>{" "}
-                    <Button size="sm" id="add-button">
-                      <AiOutlinePlusCircle size='30px'/>
+                    <Button
+                      size="sm"
+                      id="add-button"
+                      onClick={() => {
+                        this.setState(state => {
+                          state.weeksRecipes[index] =
+                            state.weeksRecipes[index] + 1;
+                          return state;
+                        });
+                        console.log(this.state);
+                      }}
+                    >
+                      <AiOutlinePlusCircle size="30px" />
                     </Button>
                   </Col>
                   <Col lg={5} className="justify-content-between">
                     <Row className="justify-content-end">
-                    <div className="categories-container">
-                      {recipe.dietLabels.map((label, index) => {
-                        switch (label) {
-                          case "Balanced":
-                            return (
-                              <div className="category-container">
-                                <FaBalanceScale size='30px' color='gray' color='gray'/>
-                                <h4>Balanced</h4>
-                              </div>
-                            );
-                          case "High-Protein":
-                            return (
-                              <div className="category-container">
-                                <GiMeat size='30px' color='gray'/>
-                                <h4>High-Protein</h4>
-                              </div>
-                            );
-                          case "Low-Carb":
-                            return (
-                              <div className='category-container'>
-                                <GiFireFlower size='30px' color='gray'/>
-                                <h4>Low-Carb</h4>
-                              </div>
-                            );
-                          case "Low-Fat":
-                            return (
-                              <div className='category-container'>
-                                <GiMuscleFat size='30px' color='gray'/>
-                                <h4>Low-Fat</h4>
-                              </div>
-                            );
+                      <div className="categories-container">
+                        {recipe.dietLabels.map((label, index) => {
+                          switch (label) {
+                            case "Balanced":
+                              return (
+                                <div className="category-container">
+                                  <FaBalanceScale
+                                    size="30px"
+                                    color="gray"
+                                    color="gray"
+                                  />
+                                  <h4>Balanced</h4>
+                                </div>
+                              );
+                            case "High-Protein":
+                              return (
+                                <div className="category-container">
+                                  <GiMeat size="30px" color="gray" />
+                                  <h4>High-Protein</h4>
+                                </div>
+                              );
+                            case "Low-Carb":
+                              return (
+                                <div className="category-container">
+                                  <GiFireFlower size="30px" color="gray" />
+                                  <h4>Low-Carb</h4>
+                                </div>
+                              );
+                            case "Low-Fat":
+                              return (
+                                <div className="category-container">
+                                  <GiMuscleFat size="30px" color="gray" />
+                                  <h4>Low-Fat</h4>
+                                </div>
+                              );
                             case "No Prep Meal":
-                              return(
-                                <div className='category-container'>
-                                  <TiCancel size='30px' color='gray'/>
+                              return (
+                                <div className="category-container">
+                                  <TiCancel size="30px" color="gray" />
                                   <h4>No Prep Meal</h4>
                                 </div>
                               );
-                              case "Team Favorite":
-                            return (
-                              <div className="category-container">
-                                <GiAlliedStar size='30px' color='gray'/>
-                                <h4>Team Favorite</h4>
-                              </div>
-                            );
+                            case "Team Favorite":
+                              return (
+                                <div className="category-container">
+                                  <GiAlliedStar size="30px" color="gray" />
+                                  <h4>Team Favorite</h4>
+                                </div>
+                              );
                             case "Vegetarian":
-                            return (
-                              <div className="category-container">
-                                <GiFruitTree size='30px' color='gray'/>
-                                <h4>Vegetarian</h4>
-                              </div>
-                            );
+                              return (
+                                <div className="category-container">
+                                  <GiFruitTree size="30px" color="gray" />
+                                  <h4>Vegetarian</h4>
+                                </div>
+                              );
                             case "Low Calorie":
-                            return (
-                              <div className="category-container">
-                                <FiArrowDownCircle size='30px' color='gray'/>
-                                <h4>Low Calorie</h4>
-                              </div>
-                            );
-                        }
-                      })}
-
-                    </div>
-                    <Button id="add-cart">Add To Cart</Button>
-                     
-
+                              return (
+                                <div className="category-container">
+                                  <FiArrowDownCircle size="30px" color="gray" />
+                                  <h4>Low Calorie</h4>
+                                </div>
+                              );
+                          }
+                        })}
+                      </div>
+                      <Button id="add-cart">Add To Cart</Button>
                     </Row>
                   </Col>
                 </Row>
