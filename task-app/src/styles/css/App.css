@@ -34,6 +34,20 @@
   padding: 1em;
 }
 
+.category-container {
+  width: 11em;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.category-container h4 {
+  /* padding-left: 1em; */
+  margin-top: .5em;
+  color:red;
+  font-size: 1em;
+  font-weight: 800;
+  margin: 0 auto;
+}
 
 /* div .container {  
 margin-left: 0px;

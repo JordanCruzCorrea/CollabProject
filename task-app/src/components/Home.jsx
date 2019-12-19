@@ -7,9 +7,8 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-import { TiCancel } from 'react-icons/ti'
-import { GiAlliedStar } from 'react-icons/gi'
-
+// import { TiCancel } from "react-icons/ti";
+// import { GiAlliedStar } from "react-icons/gi";
 
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -19,6 +18,9 @@ import "holderjs";
 
 import { recipes } from "../data/recipes";
 import Dropdown from "react-bootstrap/Dropdown";
+
+import { FaBalanceScale } from "react-icons/fa"; //balanced icon
+import { GiMeat, GiMuscleFat, GiFireFlower } from "react-icons/gi"; //highprotein and lowfat icon
 
 export default class Home extends Component {
   constructor() {
@@ -113,68 +115,111 @@ export default class Home extends Component {
         <Container>
           <Row>
             {weeksRecipes.map((recipe, index) => (
-              <Col key={index} lg={6} className='recipe-container'>
+              <Col key={index} lg={6} className="recipe-container">
                 {/* <div>{recipe.label}</div>
                 <Image fluid src={recipe.image} alt="" /> */}
                 <Row>
-                <Card
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    background: "#f5efde",
-                    width: "fit-content",
-                    margin: "5px"
-                  }}
-                >
-                  <Image
-                    variant="top"
-                    style={{ width: "45%" }}
-                    src={recipe.image}
-                  />
-                  <Card.Body>
-                    <Card.Title>Total Time:</Card.Title>
-                    <Card.Subtitle>{recipe.totalTime} minutes</Card.Subtitle>
-                    <Card.Text>
-                      <ul className="p-1">
-                        <li>Prep Time: {recipe.prepTime} Minutes</li>
-                        <li>Cook Time: {recipe.cookTime} Minutes</li>
-                        <li>Clean Up Time: {recipe.cleanTime} Minutes</li>
-                      </ul>
-                      <p>{Math.floor(recipe.calories)} Calories</p>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              
-              </Row>
-              <Row className='bottom-row'>
-              <Col key={index} lg={6}>
-              <div>
-  <h2 className='food-name'>{recipe.label}</h2>
-                <p>{recipe.description}</p>
-                <span className='serving'>Servings:</span>             <Button size="sm" id='remove-button'>-</Button>
-                <span className='serving-size'>{recipe.yield}</span>                <Button size="sm" id='add-button'>+</Button>
-              </div>
-              <div></div>
-            </Col>
-            <Col style={{margin:'5px'}}>
-              <div className='category-container'>
-            <div>
-              <TiCancel color='gray'></TiCancel>
-              <span className='category'>No Prep Meal</span>
-            </div>
-              
-            <div>
-              <GiAlliedStar color='gray'></GiAlliedStar>
-              <span className='category'>Team Favorite</span>
-            </div>
-            </div>
-              <Button id='add-cart'>Add To Cart</Button>
-            </Col>
-              </Row>
+                  <Card
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      background: "#f5efde",
+                      width: "fit-content",
+                      margin: "5px"
+                    }}
+                  >
+                    <Image
+                      variant="top"
+                      style={{ width: "45%" }}
+                      src={recipe.image}
+                    />
+                    <Card.Body>
+                      <Card.Title>Total Time:</Card.Title>
+                      <Card.Subtitle>{recipe.totalTime} minutes</Card.Subtitle>
+                      <Card.Text>
+                        <ul className="p-1">
+                          <li>Prep Time: {recipe.prepTime} Minutes</li>
+                          <li>Cook Time: {recipe.cookTime} Minutes</li>
+                          <li>Clean Up Time: {recipe.cleanTime} Minutes</li>
+                        </ul>
+                        <p>{Math.floor(recipe.calories)} Calories</p>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Row>
+                <Row className="bottom-row">
+                  <Col key={index} lg={6}>
+                    <div>
+                      <h2 className="food-name">{recipe.label}</h2>
+                      <p>{recipe.description}</p>
+                      <span className="serving">Servings:</span>{" "}
+                      <Button size="sm" id="remove-button">
+                        -
+                      </Button>
+                      <span className="serving-size">{recipe.yield}</span>{" "}
+                      <Button size="sm" id="add-button">
+                        +
+                      </Button>
+                    </div>
+                    <div></div>
+                  </Col>
+                  <Col style={{ margin: "5px" }}>
+                    <div className="categories-container">
+                      {recipe.dietLabels.map((label, index) => {
+                        switch (label) {
+                          case "Balanced":
+                            return (
+                              <div className="category-container">
+                                <FaBalanceScale size='40px'/>
+                                <h4>Balanced</h4>
+                              </div>
+                            );
+                          case "High-Protein":
+                            return (
+                              <div className="category-container">
+                                <GiMeat size='40px'/>
+                                <h4>High-Protein</h4>
+                              </div>
+                            );
+                          case "Low-Carb":
+                            return (
+                              <div className='category-container'>
+                                <GiFireFlower size='40px'/>
+                                <h4>Low-Carb</h4>
+                              </div>
+                            );
+                          case "Low-Fat":
+                            return (
+                              <div className='category-container'>
+                                <GiMuscleFat size='40px'/>
+                                <h4>Low-Fat</h4>
+                              </div>
+                            );
+                            case "None":
+                              return(
+                                <div className='category-container'>
+                                  <h4>None</h4>
+                                </div>
+                              )
+                        }
+                      })}
+
+                      {/* <div>
+                        <TiCancel color="gray"></TiCancel>
+                        <span className="category">No Prep Meal</span>
+                      </div>
+
+                      <div>
+                        <GiAlliedStar color="gray"></GiAlliedStar>
+                        <span className="category">Team Favorite</span>
+                      </div> */}
+                    </div>
+                    <Button id="add-cart">Add To Cart</Button>
+                  </Col>
+                </Row>
               </Col>
             ))}
           </Row>
-          
         </Container>
       </>
     );

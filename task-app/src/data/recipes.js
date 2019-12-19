@@ -4010,7 +4010,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/chicken-quinoa-a25ab6e41f439e4cc0721f3f34780da9/chicken",
         yield: 2,
-        dietLabels: [],
+        dietLabels: ["None"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
@@ -5291,7 +5291,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/vegetarian-ramen-86db0249fba46b6027b0b6bab4ee654c/vegetarian",
         yield: 4,
-        dietLabels: [],
+        dietLabels: ["None"],
         healthLabels: ["Tree-Nut-Free"],
         cautions: ["Gluten", "Wheat", "Sulfites", "FODMAP"],
         ingredientLines: [
@@ -9979,7 +9979,7 @@ export const recipes = [
         shareAs:
           "http://www.edamam.com/recipe/beef-tacos-321f22ade4bdf65d6166eca828bb53fc/beef",
         yield: 8,
-        dietLabels: [],
+        dietLabels: ["None"],
         healthLabels: [
           "Sugar-Conscious",
           "Peanut-Free",
