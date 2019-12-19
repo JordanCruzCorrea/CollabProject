@@ -149,7 +149,7 @@ export default class Home extends Component {
                                   Clean Up Time: {recipe.cleanTime} Minutes
                                 </li>
                               </ul>
-                              <p>{Math.floor(recipe.calories)} Calories</p>
+                              <p>{Math.floor(recipe.calories/recipe.yield)} Calories per serving</p>
                             </span>
                           </Card.Body>
                         </Col>
@@ -166,7 +166,7 @@ export default class Home extends Component {
                       <AiOutlineMinusCircle size='30px'/>
                     </Button>
                     <span className="serving-size justify-content-end">
-                      {recipe.yield}
+                      {recipe.yield/recipe.yield}
                     </span>{" "}
                     <Button size="sm" id="add-button">
                       <AiOutlinePlusCircle size='30px'/>

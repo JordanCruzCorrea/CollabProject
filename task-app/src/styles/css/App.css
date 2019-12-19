@@ -57,12 +57,12 @@ border-right: 1px solid black;
 }
 .card-body {
   height: 100%;
-  width: 97%;
+  width: 95%;
   padding: 0px;
   margin: auto;
   position: relative;
-  top: 15%;
-  left: 15%;
+  top: 5%;
+  left: 5%;
   /* font-size: 1.5em; */
 }
 
