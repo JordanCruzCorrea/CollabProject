@@ -26,6 +26,7 @@ import "holderjs";
 
 import { recipes } from "../data/recipes";
 import Dropdown from "react-bootstrap/Dropdown";
+// import Modal from "react-bootstrap/Modal";
 
 export default class Home extends Component {
   constructor() {
@@ -34,6 +35,10 @@ export default class Home extends Component {
       allRecipes: [],
       index: 0,
       direction: null,
+      next: <i className="fas fa-chevron-right"></i>,
+      prev: <i className="fas fa-chevron-left"></i>,
+      show: false,
+      selected: null,
       weeksRecipes: [1, 1, 1, 1]
     };
   }
@@ -55,20 +60,22 @@ export default class Home extends Component {
 
   render() {
     console.log(this);
-    let { allRecipes, index } = this.state;
+    let { allRecipes, index, show } = this.state;
     let recipeIndex = recipes[index];
     let weeksRecipes = recipeIndex.recipes;
 
-    console.log(weeksRecipes);
+    // console.log(weeksRecipes);
     return (
       <>
-        <Container>
+        <Container className="carousel-container">
           <Carousel
             interval={0}
-            indicators={false}
+            touch
             direction={this.state.direction}
             onSelect={this.handleSelect}
             fade={true}
+            nextIcon={this.state.next}
+            prevIcon={this.state.prev}
           >
             {allRecipes.map((recipe, index) => (
               <Carousel.Item key={index}>
@@ -133,42 +140,121 @@ export default class Home extends Component {
         </Container>
 
         <Container fluid className="recipes">
-          <Row>
+          <Row noGutters>
             {weeksRecipes.map((recipe, index) => (
-              <Col key={index} lg={6} className="recipe-container p-1 mb-3">
+              <Col key={index} lg={6} className="recipe-container mb-3">
                 <Row noGutters>
                   <Container fluid>
                     <Card>
-                      <Row>
+                      <Row noGutters>
                         <Col md={6} xs={12} lg={6}>
                           <Image fluid src={recipe.image} />
                         </Col>
-                        <Col md={6} xs={12} lg={6}>
-                          <Card.Body>
-                            <Card.Title>
-                              Total Time: {recipe.totalTime} minutes
-                            </Card.Title>
-                            <span>
-                              <ul className="p-1">
-                                <li>Prep Time: {recipe.prepTime} Minutes</li>
-                                <li>Cook Time: {recipe.cookTime} Minutes</li>
-                                <li>
-                                  Clean Up Time: {recipe.cleanTime} Minutes
-                                </li>
-                              </ul>
-                              <p>
-                                {Math.floor(recipe.calories / recipe.yield) *
-                                  `${this.state.weeksRecipes[index]}`}{" "}
-                                Calories
-                              </p>
-                            </span>
-                          </Card.Body>
+                        <Col md={6} xs={12} lg={6} className="card-right">
+                          <Carousel
+                            interval={0}
+                            nextIcon={this.state.next}
+                            prevIcon={this.state.prev}
+                            touch
+                            controls={false}
+                          >
+                            <Carousel.Item as={Card.Body}>
+                              <Card.Title>
+                                Total Time: {recipe.totalTime} minutes
+                              </Card.Title>
+                              <span className="recipe-ingredient-list">
+                                <ul>
+                                  <li>Prep: {recipe.prepTime} Minutes</li>
+                                  <li>Cook: {recipe.cookTime} Minutes</li>
+                                  <li>Clean Up: {recipe.cleanTime} Minutes</li>
+                                </ul>
+                                <p>
+                                  {Math.floor(recipe.calories / recipe.yield) *
+                                    `${this.state.weeksRecipes[index]}`}{" "}
+                                  Calories
+                                </p>
+                              </span>
+                            </Carousel.Item>
+                            <Carousel.Item
+                              as={Card.Body}
+                              className="carousel-2"
+                            >
+                              <Card.Title>Ingredients</Card.Title>
+                              <Col lg={12}>
+                                {recipe.ingredientLines.map(ingredient => (
+                                  <li>{ingredient}</li>
+                                ))}
+                              </Col>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                              <Button
+                                style={{ backgroundColor: "#6c87b9" }}
+                                onClick={() => this.setState({ show: true })}
+                              >
+                                Click here to view recipe in a modal!
+                              </Button>
+                              {show && (
+                                <div className="recipe-bg">
+                                  <div className="recipe-modal">
+                                    <iframe
+                                      src={recipe.url}
+                                      frameborder="0"
+                                      height="100%"
+                                      width="100%"
+                                    ></iframe>
+                                    <Button
+                                      style={{ backgroundColor: "#6c87b9" }}
+                                      onClick={() =>
+                                        this.setState({ show: false })
+                                      }
+                                    >
+                                      Close
+                                    </Button>
+                                  </div>
+                                </div>
+                              )}
+                              {/* <Modal show={show} onHide={this.handleClose}>
+                                <Modal.Header closeButton />
+                                <Modal.Body>
+                                  Hi
+                                  <iframe
+                                    src={recipe.url}
+                                    frameborder="0"
+                                  ></iframe>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                  <Button variant="primary">Close</Button>
+                                </Modal.Footer>
+                              </Modal> */}
+                            </Carousel.Item>
+                          </Carousel>
+                          <Col md={6} xs={12} lg={6}>
+                            <Card.Body>
+                              <Card.Title>
+                                Total Time: {recipe.totalTime} minutes
+                              </Card.Title>
+                              <span>
+                                <ul className="p-1">
+                                  <li>Prep Time: {recipe.prepTime} Minutes</li>
+                                  <li>Cook Time: {recipe.cookTime} Minutes</li>
+                                  <li>
+                                    Clean Up Time: {recipe.cleanTime} Minutes
+                                  </li>
+                                </ul>
+                                <p>
+                                  {Math.floor(recipe.calories / recipe.yield) *
+                                    `${this.state.weeksRecipes[index]}`}{" "}
+                                  Calories
+                                </p>
+                              </span>
+                            </Card.Body>
+                          </Col>
                         </Col>
                       </Row>
                     </Card>
                   </Container>
                 </Row>
-                <Row noGutters className="m-3 test">
+                <Row noGutters className="recipe-card-bottom">
                   <Col lg={7} className="justify-content-between">
                     <h2 className="food-name">{recipe.label}</h2>
                     <p>{recipe.description}</p>
@@ -206,7 +292,7 @@ export default class Home extends Component {
                     </Button>
                   </Col>
                   <Col lg={5} className="justify-content-between">
-                    <Row className="justify-content-end">
+                    <Row noGutters className="justify-content-end">
                       <div className="categories-container">
                         {recipe.dietLabels.map((label, index) => {
                           switch (label) {
