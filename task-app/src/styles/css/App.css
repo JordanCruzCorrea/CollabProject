@@ -1,11 +1,21 @@
+
+/* Cards CSS */
+.cards-container {
+display: flex;
+flex-wrap: wrap;
+border-right: 1px solid black;
+
+}
+
 .category {
   color: #f46b27;
 }
 
-.category-container {
-  margin-top: 10px;
-}
 
+.card .img-fluid {
+  height: fit-content;
+  width: 100%;
+}
 .card {
   box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.247);
 }
@@ -27,6 +37,57 @@
   border-bottom-left-radius: 0;
 }
 
+.recipes-container {
+  margin-top: 1em;
+}
+
+.bottom-row {
+  padding: 1em;
+}
+
+.category-container {
+  width: 11em;
+  margin: auto;
+  padding: .5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.category-container h4 {
+  margin-top: .5em;
+  color:#f46b27;
+  font-size: 1em;
+  font-weight: 800;
+  margin: 0 auto;
+}
+
+.categories-container {
+  flex-direction: row;
+  margin: 0 auto;
+}
+.card-body {
+  height: 100%;
+  width: 95%;
+  padding: 0px;
+  margin: auto;
+  position: relative;
+  top: 5%;
+  left: 5%;
+  /* font-size: 1.5em; */
+}
+
+.col-lg-6.col-md-6.col-12  {
+  padding-left: 0px;
+  padding-right: 0px;
+  background: rgb(244,239,224);
+
+  /* margin: auto; */
+}
+
+
+
+ 
+
 .food-name {
   color: #6c87b9;
 }
@@ -34,23 +95,24 @@
 /* Card Buttons */
 #remove-button {
   background: white;
-  border: 1px solid gray;
-  height: 30px;
-  width: 30px;
+  border: 1px solid white;
   text-align: center;
   align-content: center;
-  border-radius: 100px;
-  color: gray;
+  /* height: max-content;
+  width: max-content; */
+  /* border-radius: 20px; */
+  color:gray
 }
 #add-button {
   background: white;
-  border: 1px solid gray;
+  border: 1px solid white;
   text-align: center;
   align-content: center;
-  border-radius: 100px;
-  color: gray;
-  height: 30px;
-  width: 30px;
+  /* height: max-content;
+  width: max-content; */
+  /* border-radius: 20px; */
+  color:gray;
+
 }
 
 #add-cart {
@@ -58,14 +120,19 @@
   border: none;
   position: relative;
   margin-top: 1em;
-  right: 5%;
+  margin: 1em 0;
+  left: -4em;
+  
+
 }
 
 .serving-size {
-  padding: 15px;
+  padding-left: 5px;  
   font-weight: 500;
+  font-size: 1.2em;
 }
 
 .serving {
-  padding: 15px;
+  font-size: 1.2em;
+  padding-left:15px;
 }

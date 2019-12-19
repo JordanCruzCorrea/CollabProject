@@ -6,14 +6,16 @@ import Carousel from "react-bootstrap/Carousel";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { FaSearch, FaBalanceScale } from "react-icons/fa";
-// import { TiCancel } from "react-icons/ti";
+import { TiCancel } from "react-icons/ti";
+import { FiArrowDownCircle } from "react-icons/fi";
 import {
   GiMeat,
   GiMuscleFat,
-  GiFireFlower
-  // GiAlliedStar
+  GiFireFlower,
+  GiAlliedStar,
+  GiFruitTree
 } from "react-icons/gi"; //highprotein and lowfat icon
 
 import InputGroup from "react-bootstrap/InputGroup";
@@ -36,36 +38,33 @@ export default class Home extends Component {
       next: <i className="fas fa-chevron-right"></i>,
       prev: <i className="fas fa-chevron-left"></i>,
       show: false,
-      selected: null
+      selected: null,
+      weeksRecipes: [1, 1, 1, 1]
     };
   }
-
-  // handleClose = () => {
-  //   this.setState({ setShow: false });
-  // };
-
-  // handleShow = () => {
-  //   this.setState({ setShow: true });
-  // };
 
   handleSelect = (selectedIndex, e) => {
     this.setState({ index: selectedIndex, direction: e });
   };
 
   componentDidMount() {
-    this.setState({ allRecipes: recipes });
+    recipes.map(recipe => {
+      return this.setState(state => {
+        state.allRecipes.push({ recipe: recipe, serving: 1 });
+        return state;
+      });
+    });
+    // this.setState({ servings: recipes.yield });
+    console.log(this.state);
   }
 
   render() {
+    console.log(this);
     let { allRecipes, index, show } = this.state;
     let recipeIndex = recipes[index];
     let weeksRecipes = recipeIndex.recipes;
 
-    // const [show, setShow] = React.useState(false)
-    // const handleClose = () => setShow(false)
-    // const handleShow = () => setShow(true)
-
-    console.log(weeksRecipes);
+    // console.log(weeksRecipes);
     return (
       <>
         <Container className="carousel-container">
@@ -87,7 +86,7 @@ export default class Home extends Component {
                   id="holder-carousel"
                 />
                 <Carousel.Caption>
-                  <h3>Week of {recipe.week}</h3>
+                  <h3>Week of {recipe.recipe.week}</h3>
                   <p>
                     <span style={{ color: "red" }}>4 days</span> left to order
                     from this menu.
@@ -169,7 +168,11 @@ export default class Home extends Component {
                                   <li>Cook: {recipe.cookTime} Minutes</li>
                                   <li>Clean Up: {recipe.cleanTime} Minutes</li>
                                 </ul>
-                                <p>{Math.floor(recipe.calories)} Calories</p>
+                                <p>
+                                  {Math.floor(recipe.calories / recipe.yield) *
+                                    `${this.state.weeksRecipes[index]}`}{" "}
+                                  Calories
+                                </p>
                               </span>
                             </Carousel.Item>
                             <Carousel.Item
@@ -184,7 +187,8 @@ export default class Home extends Component {
                               </Col>
                             </Carousel.Item>
                             <Carousel.Item>
-                              <Button style={{ backgroundColor: '#6c87b9'}}
+                              <Button
+                                style={{ backgroundColor: "#6c87b9" }}
                                 onClick={() => this.setState({ show: true })}
                               >
                                 Click here to view recipe in a modal!
@@ -198,7 +202,8 @@ export default class Home extends Component {
                                       height="100%"
                                       width="100%"
                                     ></iframe>
-                                    <Button style={{ backgroundColor: '#6c87b9'}}
+                                    <Button
+                                      style={{ backgroundColor: "#6c87b9" }}
                                       onClick={() =>
                                         this.setState({ show: false })
                                       }
@@ -223,6 +228,27 @@ export default class Home extends Component {
                               </Modal> */}
                             </Carousel.Item>
                           </Carousel>
+                          <Col md={6} xs={12} lg={6}>
+                            <Card.Body>
+                              <Card.Title>
+                                Total Time: {recipe.totalTime} minutes
+                              </Card.Title>
+                              <span>
+                                <ul className="p-1">
+                                  <li>Prep Time: {recipe.prepTime} Minutes</li>
+                                  <li>Cook Time: {recipe.cookTime} Minutes</li>
+                                  <li>
+                                    Clean Up Time: {recipe.cleanTime} Minutes
+                                  </li>
+                                </ul>
+                                <p>
+                                  {Math.floor(recipe.calories / recipe.yield) *
+                                    `${this.state.weeksRecipes[index]}`}{" "}
+                                  Calories
+                                </p>
+                              </span>
+                            </Card.Body>
+                          </Col>
                         </Col>
                       </Row>
                     </Card>
@@ -233,58 +259,106 @@ export default class Home extends Component {
                     <h2 className="food-name">{recipe.label}</h2>
                     <p>{recipe.description}</p>
                     <span className="serving">Servings:</span>{" "}
-                    <Button size="sm" id="remove-button">
-                      -
+                    <Button
+                      size="sm"
+                      id="remove-button"
+                      onClick={() => {
+                        this.setState(state => {
+                          state.weeksRecipes[index] =
+                            state.weeksRecipes[index] - 1;
+                          return state;
+                        });
+                        console.log(this.state);
+                      }}
+                    >
+                      <AiOutlineMinusCircle size="30px" />
                     </Button>
                     <span className="serving-size justify-content-end">
-                      {recipe.yield}
+                      {this.state.weeksRecipes[index]}
                     </span>{" "}
-                    <Button size="sm" id="add-button">
-                      +
+                    <Button
+                      size="sm"
+                      id="add-button"
+                      onClick={() => {
+                        this.setState(state => {
+                          state.weeksRecipes[index] =
+                            state.weeksRecipes[index] + 1;
+                          return state;
+                        });
+                        console.log(this.state);
+                      }}
+                    >
+                      <AiOutlinePlusCircle size="30px" />
                     </Button>
                   </Col>
                   <Col lg={5} className="justify-content-between">
                     <Row noGutters className="justify-content-end">
-                      <Col className="categories-container">
-                        {recipe.dietLabels.map(label => {
+                      <div className="categories-container">
+                        {recipe.dietLabels.map((label, index) => {
                           switch (label) {
                             case "Balanced":
                               return (
                                 <div className="category-container">
-                                  <FaBalanceScale size="40px" />
+                                  <FaBalanceScale
+                                    size="30px"
+                                    color="gray"
+                                    color="gray"
+                                  />
                                   <h4>Balanced</h4>
                                 </div>
                               );
                             case "High-Protein":
                               return (
                                 <div className="category-container">
-                                  <GiMeat size="40px" />
+                                  <GiMeat size="30px" color="gray" />
                                   <h4>High-Protein</h4>
                                 </div>
                               );
                             case "Low-Carb":
                               return (
                                 <div className="category-container">
-                                  <GiFireFlower size="40px" />
+                                  <GiFireFlower size="30px" color="gray" />
                                   <h4>Low-Carb</h4>
                                 </div>
                               );
                             case "Low-Fat":
                               return (
                                 <div className="category-container">
-                                  <GiMuscleFat size="40px" />
+                                  <GiMuscleFat size="30px" color="gray" />
                                   <h4>Low-Fat</h4>
                                 </div>
                               );
-                            case "None":
+                            case "No Prep Meal":
                               return (
                                 <div className="category-container">
-                                  <h4>None</h4>
+                                  <TiCancel size="30px" color="gray" />
+                                  <h4>No Prep Meal</h4>
+                                </div>
+                              );
+                            case "Team Favorite":
+                              return (
+                                <div className="category-container">
+                                  <GiAlliedStar size="30px" color="gray" />
+                                  <h4>Team Favorite</h4>
+                                </div>
+                              );
+                            case "Vegetarian":
+                              return (
+                                <div className="category-container">
+                                  <GiFruitTree size="30px" color="gray" />
+                                  <h4>Vegetarian</h4>
+                                </div>
+                              );
+                            case "Low Calorie":
+                              return (
+                                <div className="category-container">
+                                  <FiArrowDownCircle size="30px" color="gray" />
+                                  <h4>Low Calorie</h4>
                                 </div>
                               );
                           }
                         })}
-                      </Col>
+                      </div>
                       <Button id="add-cart">Add To Cart</Button>
                     </Row>
                   </Col>

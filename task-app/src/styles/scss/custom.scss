@@ -145,6 +145,11 @@ span.navbar-brand {
 }
 
 @media screen and (max-width: 500px) {
+
+  .card-body {
+    top: 20%;
+    left: 20%;
+  }
   .carousel-caption h3 {
     font-size: 1em;
     margin-bottom: 1.8em;
@@ -234,6 +239,20 @@ span.navbar-brand {
     padding-top: 1rem;
     // justify-content: center;
   }
+.carousel-control-prev-icon {
+  background-color: gray;
+  border-radius: 30px;
+  padding: 1em;
+  margin: 0.5em;
+}
+.carousel-control-prev {
+  top: -2.5em;
+  left: 11em;
+}
+.carousel-control-next {
+  top: -2.5em;
+  right: 11em;
+}
 
   .card {
     border: none;
