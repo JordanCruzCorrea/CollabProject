@@ -3,16 +3,58 @@ $main-color: #6c87b9;
 
 @import "~bootstrap/scss/bootstrap.scss";
 
-.carousel-control-next {
-  background-color: #eeeeee;
-}
-
 .carousel-caption {
   color: black;
 }
 
 .navigation {
   background-color: $main-color;
+}
+
+span.navbar-brand {
+  order: -1;
+}
+
+.nav-item {
+  width: 120px;
+  font-weight: 900;
+  font-size: 1.1em;
+  color: white;
+}
+
+#navbar {
+  order: 0;
+}
+
+.navbar-toggler-icon {
+  color: white;
+  width: 2em;
+  height: 2em;
+}
+
+.nav-shop {
+  width: 30px;
+  height: 27px;
+}
+
+.nav-profile {
+  width: 43px;
+  height: 43px;
+}
+
+.nav-shop,
+.nav-profile {
+  order: 1;
+  color: white;
+}
+
+.input-group-text {
+  background-color: white;
+  border-right: 0;
+}
+
+.form-control {
+  border-left: 0;
 }
 
 .search-btn {
@@ -23,6 +65,10 @@ $main-color: #6c87b9;
 #filter-dropdown {
   background-color: $main-color;
   border: 0;
+}
+
+.recipes {
+  padding: 1rem 3rem;
 }
 
 @media screen and (max-width: 500px) {
@@ -40,55 +86,62 @@ $main-color: #6c87b9;
   }
 
   .carousel-caption p {
-    // display: none;
     color: #eeeeee;
+  }
+
+  #navbar {
+    order: 3;
+  }
+
+  span.navbar-brand {
+    order: 1;
+    margin-left: 3.1rem;
+  }
+
+  span.navbar-brand img {
+    height: 49px;
+    width: 49px;
+  }
+
+  .navbar-toggler {
+    order: -1;
+  }
+
+  .navbar-toggler, .collapse-show {
+    order: 0;
+  }
+
+  .navbar-toggler-collapsed {
+    order: -1;
+  }
+
+  .navbar-nav {
+    order: 3;
+  }
+
+  .nav-shop {
+    order: 2;
+  }
+
+  .nav-profile {
+    order: 3;
+  }
+
+  .recipes {
+    padding: 0;
   }
 }
 
-div .logos{
-  border: 2px solid yellow;
-  display: flex;
-  justify-content: space-between;
+.carousel-control-prev-icon {
+  background-color: gray;
+  border-radius: 30px;
+  padding: 1em;
+  margin: 0.5em;
 }
 
-.navbar-toggler{
-  background-color: blue;
-}
-
-.navbar{
-  flex-direction: row-reverse;
-  justify-content: flex start
-}
-
-// @media screen and (min-width: 375px) 
-
-// .carousel {
-// border: 3px solid red;
-// display: block;
-// height: 10em;
-// color: black;
-// }
-
-// .active {
-// color:black
-// }
-// .carousel-caption {
-// color: black;
-// bottom: -12em;
-// }
-
-.carousel-control-prev-icon{
-//  border: 3px solid red;
- background-color: gray;
- border-radius: 30px;
- padding: 1em;
- margin: .5em;
-}
-
-.carousel-control-next-icon{
-//  border: 3px solid red;
-background-color: gray;
-border-radius: 30px;
-padding: 1em;
-margin: 2em;
+.carousel-control-next-icon {
+  background-color: gray;
+  border-radius: 30px;
+  padding: 1em;
+  margin: 2em;
 }

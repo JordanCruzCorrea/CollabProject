@@ -7,8 +7,14 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
+<<<<<<< HEAD
 // import { TiCancel } from "react-icons/ti";
 // import { GiAlliedStar } from "react-icons/gi";
+=======
+import { FaSearch } from "react-icons/fa";
+import { TiCancel } from "react-icons/ti";
+import { GiAlliedStar } from "react-icons/gi";
+>>>>>>> d01ed4a15ac0a9613721c1e68a3aaca34a6a7285
 
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
@@ -48,34 +54,36 @@ export default class Home extends Component {
     console.log(weeksRecipes);
     return (
       <>
-        <Carousel
-          interval={0}
-          indicators={false}
-          direction={this.state.direction}
-          onSelect={this.handleSelect}
-          fade={true}
-        >
-          {allRecipes.map((recipe, index) => (
-            <Carousel.Item key={index}>
-              <Image
-                fluid
-                src="holder.js/3100x144?bg=eeeeee&fg=eeeeee"
-                alt="holder-carousel"
-                id="holder-carousel"
-              />
-              <Carousel.Caption>
-                <h3>Week of {recipe.week}</h3>
-                <p>
-                  <span style={{ color: "red" }}>4 days</span> left to order
-                  from this menu.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          ))}
-        </Carousel>
+        <Container>
+          <Carousel
+            interval={0}
+            indicators={false}
+            direction={this.state.direction}
+            onSelect={this.handleSelect}
+            fade={true}
+          >
+            {allRecipes.map((recipe, index) => (
+              <Carousel.Item key={index}>
+                <Image
+                  fluid
+                  src="holder.js/3100x144?bg=ffffff&fg=ffffff"
+                  alt="holder-carousel"
+                  id="holder-carousel"
+                />
+                <Carousel.Caption>
+                  <h3>Week of {recipe.week}</h3>
+                  <p>
+                    <span style={{ color: "red" }}>4 days</span> left to order
+                    from this menu.
+                  </p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </Container>
 
         <Container fluid>
-          <Row>
+          <Row className="justify-content-md-center">
             <Col
               xs={12}
               md={{ span: 6, offset: 2 }}
@@ -83,8 +91,12 @@ export default class Home extends Component {
               className="mt-3 mb-3"
             >
               <InputGroup>
+                <InputGroup.Prepend>
+                  <InputGroup.Text>
+                    <FaSearch />
+                  </InputGroup.Text>
+                </InputGroup.Prepend>
                 <FormControl
-                  // placeholder="Search"
                   aria-label="Search"
                   aria-describedby="basic-addon2"
                 />
@@ -112,58 +124,55 @@ export default class Home extends Component {
           </Row>
         </Container>
 
-        <Container>
+        <Container fluid className="recipes">
           <Row>
             {weeksRecipes.map((recipe, index) => (
-              <Col key={index} lg={6} className="recipe-container">
-                {/* <div>{recipe.label}</div>
-                <Image fluid src={recipe.image} alt="" /> */}
-                <Row>
-                  <Card
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      background: "#f5efde",
-                      width: "fit-content",
-                      margin: "5px"
-                    }}
-                  >
-                    <Image
-                      variant="top"
-                      style={{ width: "45%" }}
-                      src={recipe.image}
-                    />
-                    <Card.Body>
-                      <Card.Title>Total Time:</Card.Title>
-                      <Card.Subtitle>{recipe.totalTime} minutes</Card.Subtitle>
-                      <Card.Text>
-                        <ul className="p-1">
-                          <li>Prep Time: {recipe.prepTime} Minutes</li>
-                          <li>Cook Time: {recipe.cookTime} Minutes</li>
-                          <li>Clean Up Time: {recipe.cleanTime} Minutes</li>
-                        </ul>
-                        <p>{Math.floor(recipe.calories)} Calories</p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
+              <Col key={index} lg={6} className="recipe-container p-1 mb-3">
+                <Row noGutters>
+                  <Container fluid>
+                    <Card>
+                      <Row>
+                        <Col md={6} xs={12} lg={6}>
+                          <Image fluid src={recipe.image} />
+                        </Col>
+                        <Col md={6} xs={12} lg={6}>
+                          <Card.Body>
+                            <Card.Title>
+                              Total Time: {recipe.totalTime} minutes
+                            </Card.Title>
+                            <span>
+                              <ul className="p-1">
+                                <li>Prep Time: {recipe.prepTime} Minutes</li>
+                                <li>Cook Time: {recipe.cookTime} Minutes</li>
+                                <li>
+                                  Clean Up Time: {recipe.cleanTime} Minutes
+                                </li>
+                              </ul>
+                              <p>{Math.floor(recipe.calories)} Calories</p>
+                            </span>
+                          </Card.Body>
+                        </Col>
+                      </Row>
+                    </Card>
+                  </Container>
                 </Row>
-                <Row className="bottom-row">
-                  <Col key={index} lg={6}>
-                    <div>
-                      <h2 className="food-name">{recipe.label}</h2>
-                      <p>{recipe.description}</p>
-                      <span className="serving">Servings:</span>{" "}
-                      <Button size="sm" id="remove-button">
-                        -
-                      </Button>
-                      <span className="serving-size">{recipe.yield}</span>{" "}
-                      <Button size="sm" id="add-button">
-                        +
-                      </Button>
-                    </div>
-                    <div></div>
+                <Row noGutters className="m-3 test">
+                  <Col lg={7} className="justify-content-between">
+                    <h2 className="food-name">{recipe.label}</h2>
+                    <p>{recipe.description}</p>
+                    <span className="serving">Servings:</span>{" "}
+                    <Button size="sm" id="remove-button">
+                      -
+                    </Button>
+                    <span className="serving-size justify-content-end">
+                      {recipe.yield}
+                    </span>{" "}
+                    <Button size="sm" id="add-button">
+                      +
+                    </Button>
                   </Col>
-                  <Col style={{ margin: "5px" }}>
+                  <Col lg={5} className="justify-content-between">
+                    <Row className="justify-content-end">
                     <div className="categories-container">
                       {recipe.dietLabels.map((label, index) => {
                         switch (label) {
@@ -204,17 +213,11 @@ export default class Home extends Component {
                         }
                       })}
 
-                      {/* <div>
-                        <TiCancel color="gray"></TiCancel>
-                        <span className="category">No Prep Meal</span>
-                      </div>
-
-                      <div>
-                        <GiAlliedStar color="gray"></GiAlliedStar>
-                        <span className="category">Team Favorite</span>
-                      </div> */}
                     </div>
                     <Button id="add-cart">Add To Cart</Button>
+                     
+
+                    </Row>
                   </Col>
                 </Row>
               </Col>
