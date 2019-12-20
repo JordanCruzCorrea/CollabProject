@@ -1,71 +1,123 @@
-
 /* Cards CSS */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  border-right: 1px solid black;
 }
 
 .category {
-  color:#f46b27
+  color: #f46b27;
 }
 
-.category-container {
-  margin-top: 10px;
+.card .img-fluid {
+  height: fit-content;
+  width: 100%;
 }
 
 .card {
-  box-shadow: 0px 2px 10px gray;
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.247);
 }
-/* div .container {  
-margin-left: 0px;
-width: fit-content;
-margin: 0;
 
-} */
+.recipe-container {
+  border: 1px solid rgb(196, 196, 196);
+  box-shadow: 0px 3px rgb(190, 190, 190);
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.recipe-container:first-of-type,
+.recipe-container:nth-of-type(3) {
+  border-bottom-right-radius: 0;
+}
+
+.recipe-container:nth-of-type(2),
+.recipe-container:last-of-type {
+  border-bottom-left-radius: 0;
+}
+
+.recipes-container {
+  margin-top: 1em;
+}
+
+.bottom-row {
+  padding: 1em;
+}
+
+.category-container {
+  width: 11em;
+  margin: auto;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-container h4 {
+  margin-top: 0.5em;
+  color: #f46b27;
+  font-size: 1em;
+  font-weight: 800;
+  margin: 0 auto;
+}
+
+.categories-container {
+  flex-direction: row;
+  margin: 0 auto;
+}
+.card-body {
+  height: 100%;
+  width: 95%;
+  padding: 0px;
+  margin: auto;
+  position: relative;
+  top: 5%;
+  left: 5%;
+  /* font-size: 1.5em; */
+}
 
 .food-name {
-  color: #6c87b9
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #6c87b9;
 }
 
 /* Card Buttons */
 #remove-button {
   background: white;
-  border: 1px solid gray;
-  height: 30px;
-  width: 30px;
+  border: 1px solid white;
   text-align: center;
   align-content: center;
-  border-radius: 100px;
-  color:gray
+  color: gray;
 }
+
 #add-button {
   background: white;
-  border: 1px solid gray;
+  border: 1px solid white;
   text-align: center;
   align-content: center;
-  border-radius: 100px;
-  color:gray;
-  height: 30px;
-  width: 30px;
+  color: gray;
+}
+
+.labels {
+  height: 100%;
 }
 
 #add-cart {
-  background:#6c87b9;
+  background: #6c87b9;
   border: none;
   position: relative;
-  margin-top: 1em;
-  right: 5%;
+  margin: 1em 0;
+  width: 176px;
+  height: 40px;
 }
 
 .serving-size {
-  padding: 15px;  
+  padding-left: 5px;
   font-weight: 500;
+  font-size: 1.2em;
 }
 
 .serving {
-  padding:15px;
+  font-size: 1.2em;
+  padding-left: 15px;
 }
-
-
-
-

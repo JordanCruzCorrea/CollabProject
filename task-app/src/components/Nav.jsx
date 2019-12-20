@@ -1,55 +1,72 @@
 import React from "react";
-import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { FaHome, FaUserCircle } from "react-icons/fa";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
+import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
+import Logo from "../data/image16.png";
+
 const NavContainer = () => {
+  const [show, setShow] = React.useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [showCart, setCartShow] = React.useState(false);
+  const handleCloseCart = () => setCartShow(false);
+  const handleShowCart = () => setCartShow(true);
+
   return (
-    <Navbar collapseOnSelect variant="dark" style={{ backgroundColor: `#6c87b9` }} expand="md">
-      <Col
-        xs={{ span: "auto", order: 1 }}
-        md={{ span: 9 }}
-        lg={{ span: 10 }}
-        xl={{ span: 11, order: 2 }}
-      >
-        <Navbar.Toggle aria-controls="navbar" />
-        <Navbar.Collapse id="navbar">
-          <Nav>
-            <Nav.Item>
-              <Nav.Link href="/about">About</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/plans">Plans</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/meals">Meals</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/contact">Contact</Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Col>
-      <Col
-        xs={{ span: "auto", order: 2 }}
-        md={{}}
-        lg={{ span: "auto" }}
-        xl={{ span: "auto", order: 1 }}
-      >
-        <Navbar.Brand href="/home">
-          <FaHome />
-        </Navbar.Brand>
-      </Col>
-      <Col
-        xs={{ span: "auto", order: 3 }}
-        lg={{ span: 1, order: 3 }}
-        xl={{ span: "auto", order: 3 }}
-      >
-        <AiOutlineShoppingCart />
-        <FaUserCircle />
-      </Col>
+    <Navbar collapseOnSelect variant="light" expand="md">
+      <Navbar.Brand>
+        <Image src={Logo} />
+      </Navbar.Brand>
+      <span className="nav-shop"><AiOutlineShoppingCart
+        onClick={handleShowCart}
+        className="nav-shop-icon"
+      /></span>
+      <span className="nav-profile"><FaUserCircle onClick={handleShow} className="nav-profile-icon" /></span>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Profile</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>This is your profile</Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal show={showCart} onHide={handleCloseCart}>
+        <Modal.Header closeButton>
+          <Modal.Title>Cart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>This is your cart</Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleCloseCart}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+      <Navbar.Toggle />
+      <Navbar.Collapse id="navbar">
+        <Nav variant="tabs" defaultActiveKey="/home">
+          <Nav.Item>
+            <Nav.Link style={{ backgroundColor: '#6c87b9', color: 'white' }} href="/home">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>About</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>Plans</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>Meals</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>Contact</Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
