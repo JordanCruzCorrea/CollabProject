@@ -1,4 +1,4 @@
-// Override defaults
+// Override defaults & declare custom variables before BS import
 $main-color: #6c87b9;
 
 @import "~bootstrap/scss/bootstrap.scss";
@@ -26,21 +26,59 @@ $main-color: #6c87b9;
 }
 
 .card-right {
+  background: rgb(244, 239, 224);
   overflow: auto;
   height: 300px;
 }
 
-.carousel-2 {
+.carousel-1 {
   height: 100%;
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
-.recipe-ingredient-list {
+.carousel-2 {
+  height: 100%;
+  margin-bottom: 2rem;
+}
+
+.carousel-2 h5 {
+  text-align: center;
+}
+
+.carousel-3 {
+  margin: 2rem auto;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+// .recipe-carousel a.carousel-control-prev {
+//   justify-self: center;
+// }
+
+// .recipe-carousel a.carousel-control-next {
+//   justify-self: center;
+// }
+
+.recipe-times {
   padding: 1rem 3rem;
+  font-size: 1.3em;
+  margin: 0 auto;
+}
+
+.recipe-times ul {
+  padding: 0 1em;
+}
+
+.card-body {
+  padding: 0;
 }
 
 .card-right > .carousel.slide > .carousel-indicators {
   position: sticky;
   top: 0;
+  // bottom: 90%;
 }
 
 .carousel-indicators {
@@ -53,7 +91,8 @@ span.navbar-brand {
 }
 
 .nav-item {
-  width: 120px;
+  width: 100px;
+  text-align: center;
   font-weight: 900;
   font-size: 1.1em;
   color: white;
@@ -61,6 +100,14 @@ span.navbar-brand {
 
 .nav-item:hover {
   text-decoration: underline;
+}
+
+.nav-link.active {
+  background-color: $main-color;
+}
+
+.navbar {
+  background-color: white;
 }
 
 #navbar {
@@ -89,7 +136,7 @@ span.navbar-brand {
 .nav-profile {
   // margin: 1rem;
   order: 1;
-  color: rgb(65, 72, 80);
+  color: $main-color;
   border-radius: 50%;
   // color: rgb(0, 0, 0);
 }
@@ -123,8 +170,12 @@ span.navbar-brand {
   padding: 1rem 2rem;
 }
 
+recipe-card-top {
+  margin-bottom: 1rem;
+}
+
 .recipe-card-bottom {
-  margin: 0 1rem;
+  margin: 1rem;
 }
 
 .recipe-bg {
@@ -138,18 +189,18 @@ span.navbar-brand {
 }
 
 .recipe-modal {
-  width: 80vw;
-  height: 80vh;
+  vertical-align: middle;
+  width: 90vw;
+  height: 90vh;
   position: relative;
-  margin: 3rem;
+  margin: 2rem auto;
 }
 
-@media screen and (max-width: 500px) {
+.open-recipe-btn {
+  margin: 1.5rem 3rem;
+}
 
-  .card-body {
-    top: 20%;
-    left: 20%;
-  }
+@media screen and (max-width: 450px) {
   .carousel-caption h3 {
     font-size: 1em;
     margin-bottom: 1.8em;
@@ -237,29 +288,31 @@ span.navbar-brand {
     box-shadow: none;
     border-radius: 0;
     padding-top: 1rem;
-    // justify-content: center;
   }
-.carousel-control-prev-icon {
-  background-color: gray;
-  border-radius: 30px;
-  padding: 1em;
-  margin: 0.5em;
-}
-.carousel-control-prev {
-  top: -2.5em;
-  left: 11em;
-}
-.carousel-control-next {
-  top: -2.5em;
-  right: 11em;
-}
+
+  .carousel-control-prev-icon {
+    background-color: gray;
+    border-radius: 30px;
+    padding: 1em;
+    margin: 0.5em;
+  }
 
   .card {
     border: none;
     box-shadow: none;
   }
 
+  .card-right {
+    background-color: white;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(170, 170, 170, 0.432);
+  }
+
   .recipe-card-bottom {
     margin: 0 1rem;
+  }
+
+  .food-name {
+    text-align: center;
   }
 }

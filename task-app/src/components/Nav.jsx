@@ -20,7 +20,7 @@ const NavContainer = () => {
   const handleShowCart = () => setCartShow(true);
 
   return (
-    <Navbar collapseOnSelect variant="light" bg="light" expand="md">
+    <Navbar collapseOnSelect variant="light" expand="md">
       <Navbar.Brand>
         <Image src={Logo} />
       </Navbar.Brand>
@@ -49,18 +49,21 @@ const NavContainer = () => {
       </Modal>
       <Navbar.Toggle />
       <Navbar.Collapse id="navbar">
-        <Nav>
+        <Nav variant="tabs" defaultActiveKey="/home">
           <Nav.Item>
-            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link style={{ backgroundColor: '#6c87b9', color: 'white' }} href="/home">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/plans">Plans</Nav.Link>
+            <Nav.Link>About</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/meals">Meals</Nav.Link>
+            <Nav.Link>Plans</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link>Meals</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>Contact</Nav.Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>
