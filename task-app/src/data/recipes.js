@@ -3326,7 +3326,7 @@ export const recipes = [
       {
         uri:
           "http://www.edamam.com/ontologies/edamam.owl#recipe_17b514c50a6dd4fc9f2d99a45a645c14",
-        label: "Cool And Spicy Fish And Cucumber Salad",
+        label: "Cool, Spicy Fish & Cucumber Salad",
         description: 'This simple recipe uses only a few ingredients but packs a serious flavour punch!',
         image:
           "https://www.edamam.com/web-img/136/1362cc0f20b9c105716a58984a17f816.jpg",
@@ -7954,7 +7954,7 @@ export const recipes = [
         label: "Vegetarian Burger with Avocado Salsa",
         description: "A very easy vegan burger done in under 30 minutes. Very easy to do, yummy and a perfect summer dish.",
         image:
-          "https://www.edamam.com/web-img/5e3/5e33d48226926ea28da64bb4ed927382.jpg",
+          "https://imgur.com/F4WpnPi.jpg",
         source: "Delish",
         url:
           "http://www.delish.com/cooking/recipe-ideas/recipes/a25428/veg-burger-avocado-salsa-1095/",

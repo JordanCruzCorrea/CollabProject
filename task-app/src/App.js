@@ -9,7 +9,7 @@ import './styles/scss/custom.scss'
 
 function App() {
   return (
-    <Container fluid className="p-0">
+    <Container style={{ maxWidth:`1500px`}} className="p-0">
       <NavContainer />
       <Home />
     </Container>

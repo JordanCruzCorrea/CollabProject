@@ -1,32 +1,24 @@
 import React, { Component } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Carousel from "react-bootstrap/Carousel";
-import Image from "react-bootstrap/Image";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-import { FaSearch, FaBalanceScale } from "react-icons/fa";
-import { TiCancel } from "react-icons/ti";
-import { FiArrowDownCircle } from "react-icons/fi";
-import {
-  GiMeat,
-  GiMuscleFat,
-  GiFireFlower,
-  GiAlliedStar,
-  GiFruitTree
-} from "react-icons/gi"; //highprotein and lowfat icon
-
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+import Card from "react-bootstrap/Card";
+import Carousel from "react-bootstrap/Carousel";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import FormControl from "react-bootstrap/FormControl";
+import Image from "react-bootstrap/Image";
+import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
+
+import Labels from "./Labels";
+
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+import { FaSearch } from "react-icons/fa";
 
 import "holderjs";
 
 import { recipes } from "../data/recipes";
-import Dropdown from "react-bootstrap/Dropdown";
-// import Modal from "react-bootstrap/Modal";
 
 export default class Home extends Component {
   constructor() {
@@ -35,8 +27,6 @@ export default class Home extends Component {
       allRecipes: [],
       index: 0,
       direction: null,
-      next: <i className="fas fa-chevron-right"></i>,
-      prev: <i className="fas fa-chevron-left"></i>,
       show: false,
       selected: null,
       weeksRecipes: [1, 1, 1, 1]
@@ -54,28 +44,25 @@ export default class Home extends Component {
         return state;
       });
     });
-    // this.setState({ servings: recipes.yield });
-    console.log(this.state);
   }
 
   render() {
-    console.log(this);
-    let { allRecipes, index, show } = this.state;
+    let { allRecipes, index, show, direction } = this.state;
     let recipeIndex = recipes[index];
     let weeksRecipes = recipeIndex.recipes;
 
-    // console.log(weeksRecipes);
     return (
       <>
         <Container className="carousel-container">
           <Carousel
             interval={0}
             touch
-            direction={this.state.direction}
+            direction={direction}
             onSelect={this.handleSelect}
+            indicators={false}
             fade={true}
-            nextIcon={this.state.next}
-            prevIcon={this.state.prev}
+            nextIcon={<i className="fas fa-chevron-right"></i>}
+            prevIcon={<i className="fas fa-chevron-left"></i>}
           >
             {allRecipes.map((recipe, index) => (
               <Carousel.Item key={index}>
@@ -131,9 +118,9 @@ export default class Home extends Component {
                 key="Primary"
               >
                 <Dropdown.Item eventKey="1">Hey</Dropdown.Item>
-                <Dropdown.Item eventKey="2">Hey</Dropdown.Item>
-                <Dropdown.Item eventKey="3">Hey</Dropdown.Item>
-                <Dropdown.Item eventKey="4">Hey</Dropdown.Item>
+                <Dropdown.Item eventKey="2">This</Dropdown.Item>
+                <Dropdown.Item eventKey="3">Is</Dropdown.Item>
+                <Dropdown.Item eventKey="4">Filtering</Dropdown.Item>
               </DropdownButton>
             </Col>
           </Row>
@@ -143,7 +130,7 @@ export default class Home extends Component {
           <Row noGutters>
             {weeksRecipes.map((recipe, index) => (
               <Col key={index} lg={6} className="recipe-container mb-3">
-                <Row noGutters>
+                <Row noGutters className="recipe-card-top">
                   <Container fluid>
                     <Card>
                       <Row noGutters>
@@ -152,17 +139,22 @@ export default class Home extends Component {
                         </Col>
                         <Col md={6} xs={12} lg={6} className="card-right">
                           <Carousel
+                            className="recipe-carousel"
                             interval={0}
-                            nextIcon={this.state.next}
-                            prevIcon={this.state.prev}
                             touch
+                            fade={true}
                             controls={false}
+                            nextIcon={<i className="fas fa-chevron-right"></i>}
+                            prevIcon={<i className="fas fa-chevron-left"></i>}
                           >
-                            <Carousel.Item as={Card.Body}>
+                            <Carousel.Item
+                              as={Card.Body}
+                              className="carousel-1"
+                            >
                               <Card.Title>
                                 Total Time: {recipe.totalTime} minutes
                               </Card.Title>
-                              <span className="recipe-ingredient-list">
+                              <span className="recipe-times">
                                 <ul>
                                   <li>Prep: {recipe.prepTime} Minutes</li>
                                   <li>Cook: {recipe.cookTime} Minutes</li>
@@ -181,14 +173,17 @@ export default class Home extends Component {
                             >
                               <Card.Title>Ingredients</Card.Title>
                               <Col lg={12}>
-                                {recipe.ingredientLines.map(ingredient => (
-                                  <li>{ingredient}</li>
-                                ))}
+                                {recipe.ingredientLines.map(
+                                  (ingredient, index) => (
+                                    <li key={index}>{ingredient}</li>
+                                  )
+                                )}
                               </Col>
                             </Carousel.Item>
-                            <Carousel.Item>
+                            <Carousel.Item className="carousel-3">
                               <Button
                                 style={{ backgroundColor: "#6c87b9" }}
+                                className="open-recipe-btn"
                                 onClick={() => this.setState({ show: true })}
                               >
                                 Click here to view recipe in a modal!
@@ -196,12 +191,6 @@ export default class Home extends Component {
                               {show && (
                                 <div className="recipe-bg">
                                   <div className="recipe-modal">
-                                    <iframe
-                                      src={recipe.url}
-                                      frameborder="0"
-                                      height="100%"
-                                      width="100%"
-                                    ></iframe>
                                     <Button
                                       style={{ backgroundColor: "#6c87b9" }}
                                       onClick={() =>
@@ -210,52 +199,41 @@ export default class Home extends Component {
                                     >
                                       Close
                                     </Button>
+                                    <iframe
+                                      src={recipe.url}
+                                      frameBorder="0"
+                                      height="100%"
+                                      width="100%"
+                                      title="Recipe Link"
+                                    ></iframe>
                                   </div>
                                 </div>
                               )}
-                              {/* <Modal show={show} onHide={this.handleClose}>
-                                <Modal.Header closeButton />
-                                <Modal.Body>
-                                  Hi
-                                  <iframe
-                                    src={recipe.url}
-                                    frameborder="0"
-                                  ></iframe>
-                                </Modal.Body>
-                                <Modal.Footer>
-                                  <Button variant="primary">Close</Button>
-                                </Modal.Footer>
-                              </Modal> */}
+                              OR
+                              <Button
+                                style={{ backgroundColor: "#6c87b9" }}
+                                className="open-recipe-btn"
+                              >
+                                Click{" "}
+                                <a
+                                  href={recipe.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  here
+                                </a>{" "}
+                                to view recipe in a new tab!
+                              </Button>
                             </Carousel.Item>
                           </Carousel>
-                          <Col md={6} xs={12} lg={6}>
-                            <Card.Body>
-                              <Card.Title>
-                                Total Time: {recipe.totalTime} minutes
-                              </Card.Title>
-                              <span>
-                                <ul className="p-1">
-                                  <li>Prep Time: {recipe.prepTime} Minutes</li>
-                                  <li>Cook Time: {recipe.cookTime} Minutes</li>
-                                  <li>
-                                    Clean Up Time: {recipe.cleanTime} Minutes
-                                  </li>
-                                </ul>
-                                <p>
-                                  {Math.floor(recipe.calories / recipe.yield) *
-                                    `${this.state.weeksRecipes[index]}`}{" "}
-                                  Calories
-                                </p>
-                              </span>
-                            </Card.Body>
-                          </Col>
                         </Col>
                       </Row>
                     </Card>
                   </Container>
                 </Row>
+
                 <Row noGutters className="recipe-card-bottom">
-                  <Col lg={7} className="justify-content-between">
+                  <Col lg={9}>
                     <h2 className="food-name">{recipe.label}</h2>
                     <p>{recipe.description}</p>
                     <span className="serving">Servings:</span>{" "}
@@ -268,7 +246,6 @@ export default class Home extends Component {
                             state.weeksRecipes[index] - 1;
                           return state;
                         });
-                        console.log(this.state);
                       }}
                     >
                       <AiOutlineMinusCircle size="30px" />
@@ -285,83 +262,12 @@ export default class Home extends Component {
                             state.weeksRecipes[index] + 1;
                           return state;
                         });
-                        console.log(this.state);
                       }}
                     >
                       <AiOutlinePlusCircle size="30px" />
                     </Button>
                   </Col>
-                  <Col lg={5} className="justify-content-between">
-                    <Row noGutters className="justify-content-end">
-                      <div className="categories-container">
-                        {recipe.dietLabels.map((label, index) => {
-                          switch (label) {
-                            case "Balanced":
-                              return (
-                                <div className="category-container">
-                                  <FaBalanceScale
-                                    size="30px"
-                                    color="gray"
-                                    color="gray"
-                                  />
-                                  <h4>Balanced</h4>
-                                </div>
-                              );
-                            case "High-Protein":
-                              return (
-                                <div className="category-container">
-                                  <GiMeat size="30px" color="gray" />
-                                  <h4>High-Protein</h4>
-                                </div>
-                              );
-                            case "Low-Carb":
-                              return (
-                                <div className="category-container">
-                                  <GiFireFlower size="30px" color="gray" />
-                                  <h4>Low-Carb</h4>
-                                </div>
-                              );
-                            case "Low-Fat":
-                              return (
-                                <div className="category-container">
-                                  <GiMuscleFat size="30px" color="gray" />
-                                  <h4>Low-Fat</h4>
-                                </div>
-                              );
-                            case "No Prep Meal":
-                              return (
-                                <div className="category-container">
-                                  <TiCancel size="30px" color="gray" />
-                                  <h4>No Prep Meal</h4>
-                                </div>
-                              );
-                            case "Team Favorite":
-                              return (
-                                <div className="category-container">
-                                  <GiAlliedStar size="30px" color="gray" />
-                                  <h4>Team Favorite</h4>
-                                </div>
-                              );
-                            case "Vegetarian":
-                              return (
-                                <div className="category-container">
-                                  <GiFruitTree size="30px" color="gray" />
-                                  <h4>Vegetarian</h4>
-                                </div>
-                              );
-                            case "Low Calorie":
-                              return (
-                                <div className="category-container">
-                                  <FiArrowDownCircle size="30px" color="gray" />
-                                  <h4>Low Calorie</h4>
-                                </div>
-                              );
-                          }
-                        })}
-                      </div>
-                      <Button id="add-cart">Add To Cart</Button>
-                    </Row>
-                  </Col>
+                  <Labels recipe={recipe} />
                 </Row>
               </Col>
             ))}
